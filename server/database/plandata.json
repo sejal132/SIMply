@@ -1,0 +1,272 @@
+[
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000000" },
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 121,
+		"rating": 9,
+		"amount_of_data": 1,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000001" },
+		"type": "prepaid",
+		"validity_in_months": 1,
+		"number_of_users": 145,
+		"rating": 5,
+		"amount_of_data": 2,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000002" },
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 42,
+		"rating": 1,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000003" },
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 123,
+		"rating": 9,
+		"amount_of_data": 1,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000004" },
+		"type": "postpaid",
+		"validity_in_months": 3,
+		"number_of_users": 53,
+		"rating": 6,
+		"amount_of_data": 1,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000005" },
+		"type": "prepaid",
+		"validity_in_months": 24,
+		"number_of_users": 118,
+		"rating": 2,
+		"amount_of_data": 1,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000006" },
+		"type": "prepaid",
+		"validity_in_months": 24,
+		"number_of_users": 91,
+		"rating": 10,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000007" },
+		"type": "prepaid",
+		"validity_in_months": 3,
+		"number_of_users": 112,
+		"rating": 1,
+		"amount_of_data": 2,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000008" },
+		"type": "postpaid",
+		"validity_in_months": 18,
+		"number_of_users": 130,
+		"rating": 8,
+		"amount_of_data": 2,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000009" },
+		"type": "postpaid",
+		"validity_in_months": 3,
+		"number_of_users": 92,
+		"rating": 9,
+		"amount_of_data": 1.5,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000a" },
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 85,
+		"rating": 2,
+		"amount_of_data": 2,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000b" },
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 142,
+		"rating": 7,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000c" },
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 80,
+		"rating": 6,
+		"amount_of_data": 2,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000d" },
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 55,
+		"rating": 6,
+		"amount_of_data": 3,
+		"cost_per_month": 401
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000e" },
+		"type": "postpaid",
+		"validity_in_months": 3,
+		"number_of_users": 106,
+		"rating": 7,
+		"amount_of_data": 1.5,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300000f" },
+		"type": "postpaid",
+		"validity_in_months": 3,
+		"number_of_users": 43,
+		"rating": 4,
+		"amount_of_data": 3,
+		"cost_per_month": 349
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000010" },
+		"type": "prepaid",
+		"validity_in_months": 3,
+		"number_of_users": 69,
+		"rating": 9,
+		"amount_of_data": 1,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000011" },
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 65,
+		"rating": 9,
+		"amount_of_data": 1.5,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000012" },
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 102,
+		"rating": 4,
+		"amount_of_data": 1.5,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000013" },
+		"type": "prepaid",
+		"validity_in_months": 18,
+		"number_of_users": 132,
+		"rating": 5,
+		"amount_of_data": 1,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000014" },
+		"type": "postpaid",
+		"validity_in_months": 18,
+		"number_of_users": 72,
+		"rating": 10,
+		"amount_of_data": 2,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000015" },
+		"type": "prepaid",
+		"validity_in_months": 6,
+		"number_of_users": 65,
+		"rating": 7,
+		"amount_of_data": 2,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000016" },
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 51,
+		"rating": 10,
+		"amount_of_data": 1,
+		"cost_per_month": 149
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000017" },
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 112,
+		"rating": 5,
+		"amount_of_data": 2,
+		"cost_per_month": 301
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000018" },
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 63,
+		"rating": 7,
+		"amount_of_data": 3,
+		"cost_per_month": 349
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa3000019" },
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 126,
+		"rating": 3,
+		"amount_of_data": 3,
+		"cost_per_month": 349
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300001a" },
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 94,
+		"rating": 2,
+		"amount_of_data": 2,
+		"cost_per_month": 249
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300001b" },
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 54,
+		"rating": 9,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300001c" },
+		"type": "prepaid",
+		"validity_in_months": 18,
+		"number_of_users": 144,
+		"rating": 4,
+		"amount_of_data": 3,
+		"cost_per_month": 401
+	},
+	{
+		"id": { "$oid": "5f985bfbfc13ae0aa300001d" },
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 97,
+		"rating": 6,
+		"amount_of_data": 3,
+		"cost_per_month": 301
+	}
+]

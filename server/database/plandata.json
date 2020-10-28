@@ -6,7 +6,8 @@
 		"number_of_users": 121,
 		"rating": 9,
 		"amount_of_data": 1,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000001" },
@@ -15,7 +16,8 @@
 		"number_of_users": 145,
 		"rating": 5,
 		"amount_of_data": 2,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000002" },
@@ -24,7 +26,8 @@
 		"number_of_users": 42,
 		"rating": 1,
 		"amount_of_data": 1.5,
-		"cost_per_month": 201
+		"cost_per_month": 201,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000003" },
@@ -33,7 +36,8 @@
 		"number_of_users": 123,
 		"rating": 9,
 		"amount_of_data": 1,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000004" },
@@ -42,7 +46,8 @@
 		"number_of_users": 53,
 		"rating": 6,
 		"amount_of_data": 1,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000005" },
@@ -51,7 +56,8 @@
 		"number_of_users": 118,
 		"rating": 2,
 		"amount_of_data": 1,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000006" },
@@ -60,7 +66,8 @@
 		"number_of_users": 91,
 		"rating": 10,
 		"amount_of_data": 1.5,
-		"cost_per_month": 201
+		"cost_per_month": 201,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000007" },
@@ -69,7 +76,8 @@
 		"number_of_users": 112,
 		"rating": 1,
 		"amount_of_data": 2,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000008" },
@@ -78,7 +86,8 @@
 		"number_of_users": 130,
 		"rating": 8,
 		"amount_of_data": 2,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000009" },
@@ -87,7 +96,8 @@
 		"number_of_users": 92,
 		"rating": 9,
 		"amount_of_data": 1.5,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000a" },
@@ -96,7 +106,8 @@
 		"number_of_users": 85,
 		"rating": 2,
 		"amount_of_data": 2,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000b" },
@@ -105,7 +116,8 @@
 		"number_of_users": 142,
 		"rating": 7,
 		"amount_of_data": 1.5,
-		"cost_per_month": 201
+		"cost_per_month": 201,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000c" },
@@ -114,7 +126,8 @@
 		"number_of_users": 80,
 		"rating": 6,
 		"amount_of_data": 2,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000d" },
@@ -123,7 +136,8 @@
 		"number_of_users": 55,
 		"rating": 6,
 		"amount_of_data": 3,
-		"cost_per_month": 401
+		"cost_per_month": 401,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000e" },
@@ -132,7 +146,8 @@
 		"number_of_users": 106,
 		"rating": 7,
 		"amount_of_data": 1.5,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300000f" },
@@ -141,7 +156,8 @@
 		"number_of_users": 43,
 		"rating": 4,
 		"amount_of_data": 3,
-		"cost_per_month": 349
+		"cost_per_month": 349,
+		"provider_id":3
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000010" },
@@ -150,7 +166,8 @@
 		"number_of_users": 69,
 		"rating": 9,
 		"amount_of_data": 1,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000011" },
@@ -159,7 +176,8 @@
 		"number_of_users": 65,
 		"rating": 9,
 		"amount_of_data": 1.5,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000012" },
@@ -168,7 +186,8 @@
 		"number_of_users": 102,
 		"rating": 4,
 		"amount_of_data": 1.5,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000013" },
@@ -177,7 +196,8 @@
 		"number_of_users": 132,
 		"rating": 5,
 		"amount_of_data": 1,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000014" },
@@ -186,7 +206,8 @@
 		"number_of_users": 72,
 		"rating": 10,
 		"amount_of_data": 2,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000015" },
@@ -195,7 +216,8 @@
 		"number_of_users": 65,
 		"rating": 7,
 		"amount_of_data": 2,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":4
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000016" },
@@ -204,7 +226,8 @@
 		"number_of_users": 51,
 		"rating": 10,
 		"amount_of_data": 1,
-		"cost_per_month": 149
+		"cost_per_month": 149,
+		"provider_id":5
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000017" },
@@ -213,7 +236,8 @@
 		"number_of_users": 112,
 		"rating": 5,
 		"amount_of_data": 2,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":5
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000018" },
@@ -222,7 +246,8 @@
 		"number_of_users": 63,
 		"rating": 7,
 		"amount_of_data": 3,
-		"cost_per_month": 349
+		"cost_per_month": 349,
+		"provider_id":5
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa3000019" },
@@ -231,7 +256,8 @@
 		"number_of_users": 126,
 		"rating": 3,
 		"amount_of_data": 3,
-		"cost_per_month": 349
+		"cost_per_month": 349,
+		"provider_id":1
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300001a" },
@@ -240,7 +266,8 @@
 		"number_of_users": 94,
 		"rating": 2,
 		"amount_of_data": 2,
-		"cost_per_month": 249
+		"cost_per_month": 249,
+		"provider_id":5
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300001b" },
@@ -249,7 +276,8 @@
 		"number_of_users": 54,
 		"rating": 9,
 		"amount_of_data": 1.5,
-		"cost_per_month": 201
+		"cost_per_month": 201,
+		"provider_id":5
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300001c" },
@@ -258,7 +286,8 @@
 		"number_of_users": 144,
 		"rating": 4,
 		"amount_of_data": 3,
-		"cost_per_month": 401
+		"cost_per_month": 401,
+		"provider_id":2
 	},
 	{
 		"id": { "$oid": "5f985bfbfc13ae0aa300001d" },
@@ -267,6 +296,7 @@
 		"number_of_users": 97,
 		"rating": 6,
 		"amount_of_data": 3,
-		"cost_per_month": 301
+		"cost_per_month": 301,
+		"provider_id":1
 	}
 ]

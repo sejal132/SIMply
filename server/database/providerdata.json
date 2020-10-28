@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Jio",
+        "id": 1
+    },
+    {
+        "name": "Airtel",
+        "id": 2
+    },
+    {
+        "name": "Vodafone",
+        "id": 3
+    },
+    {
+        "name": "Idea",
+        "id": 4
+    },
+    {
+        "name": "BSNL",
+        "id": 5
+    }
+]

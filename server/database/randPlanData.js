@@ -12,7 +12,7 @@ const addData = async () => {
 		let session;
 		try {
 			session = driver.session();
-			await session.run('MATCH (a:Plan) DELETE a');
+			await session.run('MATCH (a:Plan) DETACH DELETE a');
 			await session.close();
 		} catch (error) {
 			console.log(error);

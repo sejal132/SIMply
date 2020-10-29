@@ -12,7 +12,7 @@ const addData = async () => {
 		let session;
 		try {
 			session = driver.session();
-			await session.run('MATCH (a:User) DELETE a');
+			await session.run('MATCH (a:User) DETACH DELETE a');
 			await session.close();
 		} catch (error) {
 			console.log(error);
@@ -22,7 +22,7 @@ const addData = async () => {
 			session = driver.session();
 			try {
 				await session.run(
-					'CREATE (a:User {firstName: $first_name, lastName: $last_name, email: $email, id: $id, lat: $lat, long: $long, expiryOfPlan: $eop, amountOfUsage: $aou}) RETURN a',
+					'CREATE (a:User {firstName: $first_name, lastName: $last_name, email: $email, id: $id, lat: $lat, long: $long, expiryOfPlan: $eop, amountOfUsage: $aou, planId: $planId})',
 					{
 						first_name: d.first_name,
 						last_name: d.last_name,
@@ -32,6 +32,7 @@ const addData = async () => {
 						long: d.longitude,
 						eop: d.plan_of_expiry,
 						aou: d.amount_of_usage,
+						planId: d.planId,
 					}
 				);
 			} catch (error1) {

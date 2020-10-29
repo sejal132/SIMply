@@ -18,7 +18,8 @@ const addData = async () => {
 			console.log(error);
 		}
 		const planData = JSON.parse(data);
-		planData.forEach(async d => {
+		for(let index = 0; index < planData.length; index++) {
+			const d = planData[index];
 			session = driver.session();
 			try {
 				await session.run(
@@ -38,7 +39,7 @@ const addData = async () => {
 				console.log(error1);
 			}
 			await session.close();
-		});
+		}
 	});
 	await driver.close();
 	console.log('done');

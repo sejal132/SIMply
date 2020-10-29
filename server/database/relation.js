@@ -19,7 +19,8 @@ const plan_provider = async () => {
 			console.log(error);
 		}
 		const providerData = JSON.parse(data);
-		providerData.forEach(async d => {
+		for (let index = 0; index < providerData.length; index++) {
+			const d = providerData[index];
 			session = driver.session();
 			try {
 				await session.run(
@@ -32,7 +33,7 @@ const plan_provider = async () => {
 				console.log(error1);
 			}
 			await session.close();
-		});
+		}
 	});
 	console.log('done');
 };
@@ -51,7 +52,8 @@ const user_plan = async () => {
 			console.log(error);
 		}
 		const planData = JSON.parse(data);
-		planData.forEach(async d => {
+		for (let index = 0; index < planData.length; index++) {
+			const d = planData[index];
 			session = driver.session();
 			try {
 				await session.run(
@@ -64,7 +66,7 @@ const user_plan = async () => {
 				console.log(error1);
 			}
 			await session.close();
-		});
+		}
 	});
 	await driver.close();
 	console.log('done');

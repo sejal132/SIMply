@@ -18,7 +18,8 @@ const addData = async () => {
 			console.log(error);
 		}
 		const providerData = JSON.parse(data);
-		providerData.forEach(async d => {
+		for(let index = 0; index < providerData.length; index++) {
+			const d = providerData[index];
 			session = driver.session();
 			try {
 				await session.run(
@@ -32,7 +33,7 @@ const addData = async () => {
 				console.log(error1);
 			}
 			await session.close();
-		});
+		}
 	});
 	await driver.close();
 	console.log('done');

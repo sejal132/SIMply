@@ -18,7 +18,7 @@ const addData = async () => {
 			console.log(error);
 		}
 		const planData = JSON.parse(data);
-		for(let index = 0; index < planData.length; index++) {
+		for (let index = 0; index < planData.length; index++) {
 			const d = planData[index];
 			session = driver.session();
 			try {
@@ -32,13 +32,23 @@ const addData = async () => {
 						aod: d.amount_of_data,
 						cpm: d.cost_per_month,
 						id: d.id.$oid,
-						provider_id:d.provider_id
+						provider_id: d.provider_id,
 					}
 				);
+				await session.close();
 			} catch (error1) {
 				console.log(error1);
 			}
+		}
+		try {
+			session = driver.session();
+			await session.run('DROP INDEX planIndex');
 			await session.close();
+			session = driver.session();
+			await session.run('CREATE INDEX planIndex FOR(n:Plan) ON (n.id)');
+			await session.close();
+		} catch (error1) {
+			console.log(error1);
 		}
 	});
 	await driver.close();

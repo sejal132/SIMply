@@ -18,7 +18,7 @@ const addData = async () => {
 			console.log(error);
 		}
 		const userData = JSON.parse(data);
-		for(let index = 0; index < userData.length; index++) {
+		for (let index = 0; index < userData.length; index++) {
 			const d = userData[index];
 			session = driver.session();
 			try {
@@ -36,10 +36,20 @@ const addData = async () => {
 						planId: d.planId,
 					}
 				);
+				await session.close();
 			} catch (error1) {
 				console.log(error1);
 			}
+		}
+		try {
+			session = driver.session();
+			await session.run('DROP INDEX userIndex');
 			await session.close();
+			session = driver.session();
+			await session.run('CREATE INDEX userIndex FOR(n:User) ON (n.id)');
+			await session.close();
+		} catch (error1) {
+			console.log(error1);
 		}
 	});
 	await driver.close();

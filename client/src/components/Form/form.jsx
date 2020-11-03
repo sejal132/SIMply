@@ -19,6 +19,7 @@ const SignupForm = props => {
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [email, setEmail] = useState('');
+	const [costPerMonth, setCostPerMonth] = useState(0);
 	const [planExpiry, setPlanExpiry] = useState(new Date().toISOString());
 	const [lat, setLat] = useState(0);
 	const [long, setLong] = useState(0);
@@ -29,6 +30,7 @@ const SignupForm = props => {
 		firstName: '',
 		lastName: '',
 		email: '',
+		costPerMonth: '',
 	});
 
 	const handleFirstNameChange = e => setFirstName(e.target.value);
@@ -36,6 +38,14 @@ const SignupForm = props => {
 	const handleLastNameChange = e => setLastName(e.target.value);
 
 	const handleEmailChange = e => setEmail(e.target.value);
+
+	const handleCostChange = e => { 
+		if(e.target.value > 401) {
+			setCostPerMonth(401);
+		} else {
+			setCostPerMonth(e.target.value);
+		}
+	};
 
 	const handleDateChange = date => {
 		const dateString = `${
@@ -83,6 +93,13 @@ const SignupForm = props => {
 				}));
 			}
 		}
+		if(costPerMonth === 0 || !costPerMonth) {
+			formIsValid = false;
+			setErrors(prevErrors => ({
+				...prevErrors,
+				costPerMonth: '*Cost per month cannot be zero or null'
+			}));
+		}
 		return formIsValid;
 	};
 
@@ -95,7 +112,6 @@ const SignupForm = props => {
 
 	const formSubmitHandler = async e => {
 		if(isFormValid()) {
-			e.preventDefault();
 			const dataObj = {
 				firstName: firstName,
 				lastName: lastName,
@@ -107,6 +123,14 @@ const SignupForm = props => {
 				provider: provider,
 			};
 			await axios.post('http://localhost:3000/adduser', dataObj);
+			setErrors({
+				firstName: '',
+				lastName: '',
+				email: '',
+				costPerMonth: '',
+			})
+		} else {
+			e.preventDefault();
 		}
 	};
 
@@ -120,39 +144,62 @@ const SignupForm = props => {
 							<TextField
 								fullWidth
 								required
+								error={errors.firstName !== '' ? true : false}
 								name='firstName'
 								value={firstName}
 								type='text'
 								label='First Name'
+								helperText={errors.firstName}
 								onChange={handleFirstNameChange}
 							/>
-							<div className='errorMsg'>{errors.firstName}</div>
 						</Grid>
 
 						<Grid item xs={12}>
 							<TextField
 								fullWidth
 								required
+								error={errors.lastName !== '' ? true : false}
 								name='lastName'
 								value={lastName}
 								type='text'
 								label='Last Name'
+								helperText={errors.lastName}
 								onChange={handleLastNameChange}
 							/>
-							<div className='errorMsg'>{errors.lastName}</div>
 						</Grid>
 
 						<Grid item xs={12}>
 							<TextField
 								fullWidth
 								required
+								error={errors.email !== '' ? true : false}
 								name='email'
 								value={email}
 								type='email'
 								label='Email'
+								helperText={errors.email}
 								onChange={handleEmailChange}
 							/>
-							<div className='errorMsg'>{errors.email}</div>
+						</Grid>
+
+						<Grid item xs={12}>
+							<TextField
+								fullWidth
+								required
+								error={errors.costPerMonth}
+								name='costPerMonth'
+								value={costPerMonth}
+								InputProps={{
+									inputProps: {
+										min: 0,
+										max: 401
+									}
+								}}
+								type='number'
+								label='Cost per month'
+								helperText={errors.costPerMonth}
+								onChange={handleCostChange}
+							/>
 						</Grid>
 
 						<Grid item xs={12}>

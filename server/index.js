@@ -31,7 +31,7 @@ app.get("/secret", (req, res) => {
   res.statusCode = 200;
   res.end("This is ");
 });
-app.get("/adduser", db.addUser);
+app.post("/adduser", db.addUser);
 
 app.listen(3000, () => {
   console.log("Server started on port 3000");

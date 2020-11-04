@@ -12,28 +12,30 @@ const usage = 'low';
 
 const addUser = async (req, res) => {
 	try {
-		const result = await session.run(
-			'CREATE (a:User {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountOfUsage: $amtusage}) RETURN a',
+		await session.run(
+			`
+			CREATE (a:User {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountOfUsage: $amtusage})
+			WITH a
+			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
+			MERGE (a)-[r:NEAR]->(b)
+			WITH a, planId
+			MATCH (c: Plan) WHERE c.id = planId
+			MERGE (a)-[r:USES]->(c)`,
 			{
-                firstname: firstName,
-                lastname: lastName,
+				firstname: firstName,
+				lastname: lastName,
 				email: personemail,
 				expiry: planexpiry,
-                personlat: personlat,
-                personlong: personlong,
-                id: id,
+				personlat: personlat,
+				personlong: personlong,
+				id: id,
 				amtusage: usage,
 			}
 		);
-
-		const singleRecord = result.records[0];
-		const node = singleRecord.get(0);
-
-		console.log(node.properties.name);
-    } catch(err) {
-        res.send(err);
-    } finally {
-        res.send("Added user");
+	} catch (err) {
+		res.staus(500).send(err);
+	} finally {
+		res.status(200).send('Added user');
 		await session.close();
 		await driver.close();
 	}

@@ -1,302 +1,392 @@
 [
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000000" },
-		"type": "postpaid",
-		"validity_in_months": 12,
-		"number_of_users": 121,
-		"rating": 9,
-		"amount_of_data": 1,
-		"cost_per_month": 149,
-		"provider_id":1
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000001" },
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000000"
+		},
 		"type": "prepaid",
-		"validity_in_months": 1,
-		"number_of_users": 145,
-		"rating": 5,
-		"amount_of_data": 2,
-		"cost_per_month": 301,
-		"provider_id":1
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000002" },
-		"type": "postpaid",
-		"validity_in_months": 12,
-		"number_of_users": 42,
-		"rating": 1,
-		"amount_of_data": 1.5,
-		"cost_per_month": 201,
-		"provider_id":1
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000003" },
-		"type": "postpaid",
-		"validity_in_months": 6,
-		"number_of_users": 123,
-		"rating": 9,
-		"amount_of_data": 1,
-		"cost_per_month": 249,
-		"provider_id":1
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000004" },
-		"type": "postpaid",
 		"validity_in_months": 3,
-		"number_of_users": 53,
+		"number_of_users": 119,
+		"rating": 5,
+		"amount_of_data": 3,
+		"cost_per_month": 301,
+		"Perks": "Hotstar VIP",
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000001"
+		},
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 132,
+		"rating": 4,
+		"amount_of_data": 3,
+		"cost_per_month": 301,
+		"Perks": "Hotstar VIP",
+		"provider_id": 4
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000002"
+		},
+		"type": "prepaid",
+		"validity_in_months": 6,
+		"number_of_users": 82,
 		"rating": 6,
 		"amount_of_data": 1,
 		"cost_per_month": 149,
-		"provider_id":1
+		"Perks": null,
+		"provider_id": 1
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000005" },
-		"type": "prepaid",
-		"validity_in_months": 24,
-		"number_of_users": 118,
-		"rating": 2,
-		"amount_of_data": 1,
-		"cost_per_month": 149,
-		"provider_id":2
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000003"
+		},
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 72,
+		"rating": 5,
+		"amount_of_data": 3,
+		"cost_per_month": 349,
+		"Perks": "Hotstar VIP",
+		"provider_id": 3
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000006" },
-		"type": "prepaid",
-		"validity_in_months": 24,
-		"number_of_users": 91,
-		"rating": 10,
-		"amount_of_data": 1.5,
-		"cost_per_month": 201,
-		"provider_id":2
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000007" },
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000004"
+		},
 		"type": "prepaid",
 		"validity_in_months": 3,
-		"number_of_users": 112,
-		"rating": 1,
+		"number_of_users": 68,
+		"rating": 5,
 		"amount_of_data": 2,
-		"cost_per_month": 249,
-		"provider_id":2
+		"cost_per_month": 301,
+		"Perks": "Netflix",
+		"provider_id": 5
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000008" },
-		"type": "postpaid",
-		"validity_in_months": 18,
-		"number_of_users": 130,
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000005"
+		},
+		"type": "prepaid",
+		"validity_in_months": 6,
+		"number_of_users": 81,
+		"rating": 2,
+		"amount_of_data": 1,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000006"
+		},
+		"type": "prepaid",
+		"validity_in_months": 3,
+		"number_of_users": 67,
 		"rating": 8,
 		"amount_of_data": 2,
 		"cost_per_month": 249,
-		"provider_id":2
+		"Perks": "Hotstar VIP",
+		"provider_id": 3
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000009" },
-		"type": "postpaid",
-		"validity_in_months": 3,
-		"number_of_users": 92,
-		"rating": 9,
-		"amount_of_data": 1.5,
-		"cost_per_month": 301,
-		"provider_id":2
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000a" },
-		"type": "postpaid",
-		"validity_in_months": 12,
-		"number_of_users": 85,
-		"rating": 2,
-		"amount_of_data": 2,
-		"cost_per_month": 249,
-		"provider_id":3
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000b" },
-		"type": "postpaid",
-		"validity_in_months": 1,
-		"number_of_users": 142,
-		"rating": 7,
-		"amount_of_data": 1.5,
-		"cost_per_month": 201,
-		"provider_id":3
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000c" },
-		"type": "postpaid",
-		"validity_in_months": 12,
-		"number_of_users": 80,
-		"rating": 6,
-		"amount_of_data": 2,
-		"cost_per_month": 301,
-		"provider_id":3
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000d" },
-		"type": "postpaid",
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000007"
+		},
+		"type": "prepaid",
 		"validity_in_months": 6,
 		"number_of_users": 55,
-		"rating": 6,
-		"amount_of_data": 3,
-		"cost_per_month": 401,
-		"provider_id":3
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000e" },
-		"type": "postpaid",
-		"validity_in_months": 3,
-		"number_of_users": 106,
-		"rating": 7,
-		"amount_of_data": 1.5,
-		"cost_per_month": 301,
-		"provider_id":3
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300000f" },
-		"type": "postpaid",
-		"validity_in_months": 3,
-		"number_of_users": 43,
 		"rating": 4,
-		"amount_of_data": 3,
-		"cost_per_month": 349,
-		"provider_id":3
+		"amount_of_data": 2,
+		"cost_per_month": 301,
+		"Perks": "Netflix",
+		"provider_id": 4
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000010" },
-		"type": "prepaid",
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000008"
+		},
+		"type": "postpaid",
 		"validity_in_months": 3,
-		"number_of_users": 69,
-		"rating": 9,
-		"amount_of_data": 1,
-		"cost_per_month": 249,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000011" },
-		"type": "postpaid",
-		"validity_in_months": 1,
-		"number_of_users": 65,
-		"rating": 9,
-		"amount_of_data": 1.5,
-		"cost_per_month": 249,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000012" },
-		"type": "postpaid",
-		"validity_in_months": 1,
-		"number_of_users": 102,
-		"rating": 4,
-		"amount_of_data": 1.5,
-		"cost_per_month": 149,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000013" },
-		"type": "prepaid",
-		"validity_in_months": 18,
-		"number_of_users": 132,
-		"rating": 5,
-		"amount_of_data": 1,
-		"cost_per_month": 149,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000014" },
-		"type": "postpaid",
-		"validity_in_months": 18,
-		"number_of_users": 72,
-		"rating": 10,
-		"amount_of_data": 2,
-		"cost_per_month": 301,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000015" },
-		"type": "prepaid",
-		"validity_in_months": 6,
-		"number_of_users": 65,
-		"rating": 7,
-		"amount_of_data": 2,
-		"cost_per_month": 301,
-		"provider_id":4
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000016" },
-		"type": "postpaid",
-		"validity_in_months": 6,
-		"number_of_users": 51,
-		"rating": 10,
-		"amount_of_data": 1,
-		"cost_per_month": 149,
-		"provider_id":5
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000017" },
-		"type": "postpaid",
-		"validity_in_months": 6,
-		"number_of_users": 112,
-		"rating": 5,
-		"amount_of_data": 2,
-		"cost_per_month": 301,
-		"provider_id":5
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000018" },
-		"type": "postpaid",
-		"validity_in_months": 1,
-		"number_of_users": 63,
-		"rating": 7,
-		"amount_of_data": 3,
-		"cost_per_month": 349,
-		"provider_id":5
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa3000019" },
-		"type": "postpaid",
-		"validity_in_months": 6,
-		"number_of_users": 126,
-		"rating": 3,
-		"amount_of_data": 3,
-		"cost_per_month": 349,
-		"provider_id":1
-	},
-	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300001a" },
-		"type": "postpaid",
-		"validity_in_months": 1,
-		"number_of_users": 94,
+		"number_of_users": 76,
 		"rating": 2,
-		"amount_of_data": 2,
-		"cost_per_month": 249,
-		"provider_id":5
+		"amount_of_data": 1,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 5
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300001b" },
-		"type": "prepaid",
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000009"
+		},
+		"type": "postpaid",
 		"validity_in_months": 12,
-		"number_of_users": 54,
-		"rating": 9,
+		"number_of_users": 140,
+		"rating": 8,
+		"amount_of_data": 1,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 1
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000a"
+		},
+		"type": "prepaid",
+		"validity_in_months": 6,
+		"number_of_users": 108,
+		"rating": 10,
+		"amount_of_data": 2,
+		"cost_per_month": 301,
+		"Perks": "Hotstar VIP",
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000b"
+		},
+		"type": "prepaid",
+		"validity_in_months": 1,
+		"number_of_users": 86,
+		"rating": 10,
 		"amount_of_data": 1.5,
 		"cost_per_month": 201,
-		"provider_id":5
+		"Perks": null,
+		"provider_id": 5
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300001c" },
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000c"
+		},
 		"type": "prepaid",
-		"validity_in_months": 18,
-		"number_of_users": 144,
-		"rating": 4,
-		"amount_of_data": 3,
-		"cost_per_month": 401,
-		"provider_id":2
+		"validity_in_months": 6,
+		"number_of_users": 147,
+		"rating": 1,
+		"amount_of_data": 1,
+		"cost_per_month": 149,
+		"Perks": null,
+		"provider_id": 5
 	},
 	{
-		"id": { "$oid": "5f985bfbfc13ae0aa300001d" },
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000d"
+		},
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 94,
+		"rating": 10,
+		"amount_of_data": 2,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000e"
+		},
+		"type": "postpaid",
+		"validity_in_months": 3,
+		"number_of_users": 113,
+		"rating": 5,
+		"amount_of_data": 1,
+		"cost_per_month": 149,
+		"Perks": null,
+		"provider_id": 1
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00000f"
+		},
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 105,
+		"rating": 5,
+		"amount_of_data": 2,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 4
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000010"
+		},
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 128,
+		"rating": 9,
+		"amount_of_data": 1.5,
+		"cost_per_month": 149,
+		"Perks": null,
+		"provider_id": 2
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000011"
+		},
+		"type": "prepaid",
+		"validity_in_months": 3,
+		"number_of_users": 68,
+		"rating": 4,
+		"amount_of_data": 2,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000012"
+		},
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 88,
+		"rating": 5,
+		"amount_of_data": 3,
+		"cost_per_month": 349,
+		"Perks": "Hotstar VIP",
+		"provider_id": 4
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000013"
+		},
 		"type": "postpaid",
 		"validity_in_months": 12,
-		"number_of_users": 97,
+		"number_of_users": 70,
+		"rating": 1,
+		"amount_of_data": 3,
+		"cost_per_month": 349,
+		"Perks": "Amazon Prime",
+		"provider_id": 2
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000014"
+		},
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 124,
+		"rating": 4,
+		"amount_of_data": 1.5,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 3
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000015"
+		},
+		"type": "prepaid",
+		"validity_in_months": 12,
+		"number_of_users": 77,
+		"rating": 1,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 3
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000016"
+		},
+		"type": "prepaid",
+		"validity_in_months": 3,
+		"number_of_users": 89,
+		"rating": 4,
+		"amount_of_data": 1,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 2
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000017"
+		},
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 58,
+		"rating": 8,
+		"amount_of_data": 3,
+		"cost_per_month": 349,
+		"Perks": "Amazon Prime",
+		"provider_id": 5
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000018"
+		},
+		"type": "postpaid",
+		"validity_in_months": 6,
+		"number_of_users": 114,
+		"rating": 6,
+		"amount_of_data": 1.5,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 1
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b000019"
+		},
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 119,
+		"rating": 7,
+		"amount_of_data": 1,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 4
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00001a"
+		},
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 56,
+		"rating": 4,
+		"amount_of_data": 1.5,
+		"cost_per_month": 201,
+		"Perks": null,
+		"provider_id": 2
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00001b"
+		},
+		"type": "postpaid",
+		"validity_in_months": 1,
+		"number_of_users": 118,
 		"rating": 6,
 		"amount_of_data": 3,
 		"cost_per_month": 301,
-		"provider_id":1
+		"Perks": "Amazon Prime",
+		"provider_id": 1
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00001c"
+		},
+		"type": "postpaid",
+		"validity_in_months": 12,
+		"number_of_users": 100,
+		"rating": 5,
+		"amount_of_data": 1.5,
+		"cost_per_month": 249,
+		"Perks": "Hotstar VIP",
+		"provider_id": 2
+	},
+	{
+		"id": {
+			"$oid": "5fa62cb8fc13ae657b00001d"
+		},
+		"type": "prepaid",
+		"validity_in_months": 1,
+		"number_of_users": 74,
+		"rating": 7,
+		"amount_of_data": 3,
+		"cost_per_month": 301,
+		"Perks": "Hotstar VIP",
+		"provider_id": 1
 	}
 ]

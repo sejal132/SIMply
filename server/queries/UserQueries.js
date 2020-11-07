@@ -1,41 +1,54 @@
 const driver = require('../database/config');
+const { v4: uuidv4 } = require('uuid');
 
-const session = driver.session();
-const firstName = 'Alice';
-const lastName = 'WonderLand';
-const personemail = 'sejalagrawal01@gmail.com';
-const planexpiry = 2;
-const personlat = 43.213239;
-const personlong = 23.21312;
-const id = 'random id';
-const usage = 'low';
+const getProviderId = (provider) => {
+	switch (provider) {
+		case 'Jio':
+			return 1
+		case 'Airtel':
+			return 2
+		case 'Vodafone':
+			return 3
+		case 'Idea':
+			return 4
+		case 'BSNL':
+			return 5
+	}
+}
 
 const addUser = async (req, res) => {
+	const id = uuidv4();
+	const session = driver.session();
+	const d = req.body;
+	const pid = getProviderId(d.provider);
 	try {
 		await session.run(
 			`
-			CREATE (a:User {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountOfUsage: $amtusage})
+			CREATE (a:User {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay})
 			WITH a
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
-			WITH a, planId
-			MATCH (c: Plan) WHERE c.id = planId
-			MERGE (a)-[r:USES]->(c)`,
+			WITH a
+			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = a.amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
+			MERGE (a)-[r:USES]->(p)`,
 			{
-				firstname: firstName,
-				lastname: lastName,
-				email: personemail,
-				expiry: planexpiry,
-				personlat: personlat,
-				personlong: personlong,
+				firstname: d.firstName,
+				lastname: d.lastName,
+				email: d.email,
+				expiry: d.planExpiry,
+				personlat: d.lat,
+				personlong: d.long,
 				id: id,
-				amtusage: usage,
+				amountPerDay: d.amountPerDay,
+				pid: pid,
+				type: d.type,
+				cpm: d.costPerMonth,
 			}
 		);
 	} catch (err) {
 		res.status(500).send(err);
 	} finally {
-		res.status(200).send('Added user');
+		res.status(200).send(id);
 		await session.close();
 		await driver.close();
 	}

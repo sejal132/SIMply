@@ -33,7 +33,7 @@ const addUser = async (req, res) => {
 			}
 		);
 	} catch (err) {
-		res.staus(500).send(err);
+		res.status(500).send(err);
 	} finally {
 		res.status(200).send('Added user');
 		await session.close();

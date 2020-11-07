@@ -29,7 +29,7 @@ const addUser = async (req, res) => {
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
 			WITH a
-			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = a.amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
+			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = $amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
 			MERGE (a)-[r:USES]->(p)`,
 			{
 				firstname: d.firstName,

@@ -23,7 +23,7 @@ const addData = async () => {
 			session = driver.session();
 			try {
 				await session.run(
-					'CREATE (a:Plan {type: $type, validity: $validity, numberOfUsers: $nou, rating: $rating, amountOfData: $aod, costPerMonth: $cpm, id: $id,provider_id:$provider_id})',
+					'CREATE (a:Plan {type: $type, validity: $validity, numberOfUsers: $nou, rating: $rating, amountOfData: $aod, costPerMonth: $cpm, id: $id, provider_id: $provider_id, perks: $perks})',
 					{
 						type: d.type,
 						validity: d.validity_in_months,
@@ -33,6 +33,7 @@ const addData = async () => {
 						cpm: d.cost_per_month,
 						id: d.id.$oid,
 						provider_id: d.provider_id,
+						perks: d.Perks,
 					}
 				);
 				await session.close();

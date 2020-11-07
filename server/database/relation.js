@@ -81,7 +81,7 @@ const plan_plan = async () => {
 			WITH a
 			MATCH (b:Plan) WHERE a.id <> b.id
 			WITH (2 - abs(a.amountOfData - b.amountOfData)) as amtDiff, a, b
-			WHERE amtDiff = 2 OR (amtDiff = 1.5 AND a.provider_id = b.provider_id)
+			WHERE (amtDiff = 2 OR (amtDiff = 1.5 AND a.provider_id = b.provider_id)) AND a.type = b.type
 			MERGE (a)-[r:SIMILAR {similarity: amtDiff+1}]->(b)`
 		);
 		await session.close();

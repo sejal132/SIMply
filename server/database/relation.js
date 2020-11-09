@@ -81,8 +81,9 @@ const plan_plan = async () => {
 			WITH a
 			MATCH (b:Plan) WHERE a.id <> b.id
 			WITH (2 - abs(a.amountOfData - b.amountOfData)) as amtDiff, a, b
-			WHERE (amtDiff = 2 OR (amtDiff = 1.5 AND a.provider_id = b.provider_id)) AND a.type = b.type
-			MERGE (a)-[r:SIMILAR {similarity: amtDiff+1}]->(b)`
+			WITH (0.5*abs(a.costPerMonth-b.costPerMonth)+0.4*abs(a.rating-b.rating)+0.1*abs(a.numberOfUsers-b.numberOfUsers)) as paramDiff,a,b
+			WHERE (amtDiff = 2 OR amtDiff=1.5 AND a.type = b.type AND paramDiff<=30)
+			MERGE (a)-[r:SIMILAR]->(b)`
 		);
 		await session.close();
 		session = driver.session();

@@ -25,6 +25,7 @@ const SignupForm = props => {
 	const [long, setLong] = useState(0);
 	const [amountPerDay, setAmountPerDay] = useState(1);
 	const [provider, setProvider] = useState('Jio');
+	const [type, setType] = useState('prepaid');
 
 	const [errors, setErrors] = useState({
 		firstName: '',
@@ -39,8 +40,8 @@ const SignupForm = props => {
 
 	const handleEmailChange = e => setEmail(e.target.value);
 
-	const handleCostChange = e => { 
-		if(e.target.value > 401) {
+	const handleCostChange = e => {
+		if (e.target.value > 401) {
 			setCostPerMonth(401);
 		} else {
 			setCostPerMonth(e.target.value);
@@ -58,6 +59,8 @@ const SignupForm = props => {
 	const handleProviderChange = e => setProvider(e.target.value);
 
 	const handleAmountChange = e => setAmountPerDay(e.target.value);
+
+	const handleTypeChange = e => setType(e.target.value);
 
 	const isFormValid = () => {
 		let formIsValid = true;
@@ -93,11 +96,11 @@ const SignupForm = props => {
 				}));
 			}
 		}
-		if(costPerMonth === 0 || !costPerMonth) {
+		if (costPerMonth === 0 || !costPerMonth) {
 			formIsValid = false;
 			setErrors(prevErrors => ({
 				...prevErrors,
-				costPerMonth: '*Cost per month cannot be zero or null'
+				costPerMonth: '*Cost per month cannot be zero or null',
 			}));
 		}
 		return formIsValid;
@@ -111,7 +114,7 @@ const SignupForm = props => {
 	}, []);
 
 	const formSubmitHandler = async e => {
-		if(isFormValid()) {
+		if (isFormValid()) {
 			const dataObj = {
 				firstName: firstName,
 				lastName: lastName,
@@ -121,14 +124,26 @@ const SignupForm = props => {
 				long: long,
 				amountPerDay: amountPerDay,
 				provider: provider,
+				costPerMonth: parseFloat(costPerMonth),
+				type: type,
 			};
-			await axios.post('http://localhost:3000/adduser', dataObj);
+			console.log(dataObj);
 			setErrors({
 				firstName: '',
 				lastName: '',
 				email: '',
 				costPerMonth: '',
-			})
+			});
+			try {
+				const result = await axios.post(
+					'http://localhost:8080/adduser',
+					dataObj
+				);
+				console.log(result.data);
+				localStorage.setItem('id', result.data);
+			} catch (error) {
+				console.log(error);
+			}
 		} else {
 			e.preventDefault();
 		}
@@ -192,8 +207,8 @@ const SignupForm = props => {
 								InputProps={{
 									inputProps: {
 										min: 0,
-										max: 401
-									}
+										max: 401,
+									},
 								}}
 								type='number'
 								label='Cost per month'
@@ -223,7 +238,7 @@ const SignupForm = props => {
 							/>
 						</Grid>
 
-						<Grid item xs={6}>
+						<Grid item xs={4}>
 							<FormControl fullWidth>
 								<InputLabel id='demo-simple-select-label'>
 									Service Provider
@@ -244,10 +259,30 @@ const SignupForm = props => {
 							</FormControl>
 						</Grid>
 
-						<Grid item xs={6}>
+						<Grid item xs={4}>
 							<FormControl fullWidth>
 								<InputLabel id='demo-simple-select-label'>
-									Amount of Data per day
+									Plan Type
+								</InputLabel>
+								<Select
+									labelId='demo-simple-select-label'
+									id='demo-simple-select'
+									value={type}
+									onChange={handleTypeChange}>
+									<MenuItem value={'prepaid'}>
+										Prepaid
+									</MenuItem>
+									<MenuItem value={'postpaid'}>
+										Postpaid
+									</MenuItem>
+								</Select>
+							</FormControl>
+						</Grid>
+
+						<Grid item xs={4}>
+							<FormControl fullWidth>
+								<InputLabel id='demo-simple-select-label'>
+									Data per day
 								</InputLabel>
 								<Select
 									labelId='demo-simple-select-label'

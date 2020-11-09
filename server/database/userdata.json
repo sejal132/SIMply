@@ -8,7 +8,7 @@
 		"latitude": 19.10119699,
 		"longitude": 72.91352063,
 		"plan_of_expiry": "06/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000000"
 	},
 	{
@@ -20,7 +20,7 @@
 		"latitude": 19.04868843,
 		"longitude": 72.89677409,
 		"plan_of_expiry": "27/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000002"
 	},
 	{
@@ -32,7 +32,7 @@
 		"latitude": 19.10402304,
 		"longitude": 72.87497033,
 		"plan_of_expiry": "15/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000000"
 	},
 	{
@@ -44,7 +44,7 @@
 		"latitude": 19.07499919,
 		"longitude": 72.94257157,
 		"plan_of_expiry": "15/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000000"
 	},
 	{
@@ -56,7 +56,7 @@
 		"latitude": 19.1056864,
 		"longitude": 72.8788365,
 		"plan_of_expiry": "05/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000002"
 	},
 	{
@@ -68,7 +68,7 @@
 		"latitude": 19.11406539,
 		"longitude": 72.84388095,
 		"plan_of_expiry": "15/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000001"
 	},
 	{
@@ -80,7 +80,7 @@
 		"latitude": 19.05474285,
 		"longitude": 72.90397705,
 		"plan_of_expiry": "02/01/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000002"
 	},
 	{
@@ -92,7 +92,7 @@
 		"latitude": 19.06392911,
 		"longitude": 72.88204466,
 		"plan_of_expiry": "17/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000001"
 	},
 	{
@@ -104,7 +104,7 @@
 		"latitude": 19.0242664,
 		"longitude": 72.85520878,
 		"plan_of_expiry": "04/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000001"
 	},
 	{
@@ -116,7 +116,7 @@
 		"latitude": 19.07152329,
 		"longitude": 72.91312762,
 		"plan_of_expiry": "22/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000005"
 	},
 	{
@@ -128,7 +128,7 @@
 		"latitude": 19.03864627,
 		"longitude": 72.83561839,
 		"plan_of_expiry": "28/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000003"
 	},
 	{
@@ -140,7 +140,7 @@
 		"latitude": 19.04463152,
 		"longitude": 72.88843879,
 		"plan_of_expiry": "20/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000003"
 	},
 	{
@@ -152,7 +152,7 @@
 		"latitude": 19.08716311,
 		"longitude": 72.86383436,
 		"plan_of_expiry": "12/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000a"
 	},
 	{
@@ -164,7 +164,7 @@
 		"latitude": 19.09496015,
 		"longitude": 72.87241432,
 		"plan_of_expiry": "18/12/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000a"
 	},
 	{
@@ -176,7 +176,7 @@
 		"latitude": 19.04881431,
 		"longitude": 72.91242702,
 		"plan_of_expiry": "12/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000005"
 	},
 	{
@@ -188,7 +188,7 @@
 		"latitude": 19.05664555,
 		"longitude": 72.89741571,
 		"plan_of_expiry": "25/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000005"
 	},
 	{
@@ -200,7 +200,7 @@
 		"latitude": 19.0158274,
 		"longitude": 72.89360642,
 		"plan_of_expiry": "15/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000008"
 	},
 	{
@@ -212,7 +212,7 @@
 		"latitude": 19.09503408,
 		"longitude": 72.86164472,
 		"plan_of_expiry": "24/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000008"
 	},
 	{
@@ -224,7 +224,7 @@
 		"latitude": 19.05091311,
 		"longitude": 72.92709972,
 		"plan_of_expiry": "23/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000003"
 	},
 	{
@@ -236,7 +236,7 @@
 		"latitude": 19.0540434,
 		"longitude": 72.88894281,
 		"plan_of_expiry": "09/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000a"
 	},
 	{
@@ -248,7 +248,7 @@
 		"latitude": 19.07284571,
 		"longitude": 72.91918014,
 		"plan_of_expiry": "26/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000008"
 	},
 	{
@@ -260,7 +260,7 @@
 		"latitude": 19.05689288,
 		"longitude": 72.9281652,
 		"plan_of_expiry": "06/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000012"
 	},
 	{
@@ -272,7 +272,7 @@
 		"latitude": 19.08567507,
 		"longitude": 72.94279104,
 		"plan_of_expiry": "01/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000012"
 	},
 	{
@@ -284,7 +284,7 @@
 		"latitude": 19.10409665,
 		"longitude": 72.9222957,
 		"plan_of_expiry": "31/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000d"
 	},
 	{
@@ -296,7 +296,7 @@
 		"latitude": 19.0511993,
 		"longitude": 72.85476524,
 		"plan_of_expiry": "11/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000d"
 	},
 	{
@@ -308,7 +308,7 @@
 		"latitude": 19.05955775,
 		"longitude": 72.85423186,
 		"plan_of_expiry": "27/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000012"
 	},
 	{
@@ -320,7 +320,7 @@
 		"latitude": 19.05669933,
 		"longitude": 72.90747878,
 		"plan_of_expiry": "12/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000013"
 	},
 	{
@@ -332,7 +332,7 @@
 		"latitude": 19.07243498,
 		"longitude": 72.89023907,
 		"plan_of_expiry": "24/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000d"
 	},
 	{
@@ -344,7 +344,7 @@
 		"latitude": 19.04458634,
 		"longitude": 72.91617858,
 		"plan_of_expiry": "09/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000013"
 	},
 	{
@@ -356,7 +356,7 @@
 		"latitude": 19.06990824,
 		"longitude": 72.86414022,
 		"plan_of_expiry": "28/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000013"
 	},
 	{
@@ -368,7 +368,7 @@
 		"latitude": 19.09013161,
 		"longitude": 72.88677434,
 		"plan_of_expiry": "14/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000017"
 	},
 	{
@@ -380,7 +380,7 @@
 		"latitude": 19.03599455,
 		"longitude": 72.84928629,
 		"plan_of_expiry": "02/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000009"
 	},
 	{
@@ -392,7 +392,7 @@
 		"latitude": 19.0987082,
 		"longitude": 72.91620825,
 		"plan_of_expiry": "07/12/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000f"
 	},
 	{
@@ -404,7 +404,7 @@
 		"latitude": 19.08805858,
 		"longitude": 72.93601255,
 		"plan_of_expiry": "15/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000009"
 	},
 	{
@@ -416,7 +416,7 @@
 		"latitude": 19.12647493,
 		"longitude": 72.87109943,
 		"plan_of_expiry": "11/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000009"
 	},
 	{
@@ -428,7 +428,7 @@
 		"latitude": 19.09745643,
 		"longitude": 72.90224138,
 		"plan_of_expiry": "23/01/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000c"
 	},
 	{
@@ -440,7 +440,7 @@
 		"latitude": 19.06230867,
 		"longitude": 72.88009431,
 		"plan_of_expiry": "12/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000017"
 	},
 	{
@@ -452,7 +452,7 @@
 		"latitude": 19.09659517,
 		"longitude": 72.86170416,
 		"plan_of_expiry": "06/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000c"
 	},
 	{
@@ -464,7 +464,7 @@
 		"latitude": 19.0897394,
 		"longitude": 72.90873486,
 		"plan_of_expiry": "08/03/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000f"
 	},
 	{
@@ -476,7 +476,7 @@
 		"latitude": 19.07609272,
 		"longitude": 72.89084789,
 		"plan_of_expiry": "03/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000c"
 	},
 	{
@@ -488,7 +488,7 @@
 		"latitude": 19.06456692,
 		"longitude": 72.83249261,
 		"plan_of_expiry": "21/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b000017"
 	},
 	{
@@ -500,7 +500,7 @@
 		"latitude": 19.04967514,
 		"longitude": 72.90245771,
 		"plan_of_expiry": "19/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000e"
 	},
 	{
@@ -512,7 +512,7 @@
 		"latitude": 19.07463094,
 		"longitude": 72.91997594,
 		"plan_of_expiry": "02/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000e"
 	},
 	{
@@ -524,7 +524,7 @@
 		"latitude": 19.08671137,
 		"longitude": 72.84575171,
 		"plan_of_expiry": "14/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b00000f"
 	},
 	{
@@ -536,7 +536,7 @@
 		"latitude": 19.10991792,
 		"longitude": 72.89633763,
 		"plan_of_expiry": "11/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001b"
 	},
 	{
@@ -548,7 +548,7 @@
 		"latitude": 19.12878956,
 		"longitude": 72.87436144,
 		"plan_of_expiry": "02/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000e"
 	},
 	{
@@ -560,7 +560,7 @@
 		"latitude": 19.04082209,
 		"longitude": 72.89410543,
 		"plan_of_expiry": "23/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001b"
 	},
 	{
@@ -572,7 +572,7 @@
 		"latitude": 19.03013538,
 		"longitude": 72.90743062,
 		"plan_of_expiry": "31/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000011"
 	},
 	{
@@ -584,7 +584,7 @@
 		"latitude": 19.12451327,
 		"longitude": 72.89552745,
 		"plan_of_expiry": "05/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001b"
 	},
 	{
@@ -596,7 +596,7 @@
 		"latitude": 19.07020034,
 		"longitude": 72.91255852,
 		"plan_of_expiry": "26/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000016"
 	},
 	{
@@ -608,7 +608,7 @@
 		"latitude": 19.10272301,
 		"longitude": 72.90152706,
 		"plan_of_expiry": "08/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001d"
 	},
 	{
@@ -620,7 +620,7 @@
 		"latitude": 19.09385335,
 		"longitude": 72.93882579,
 		"plan_of_expiry": "14/02/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000011"
 	},
 	{
@@ -632,7 +632,7 @@
 		"latitude": 19.04756095,
 		"longitude": 72.86895838,
 		"plan_of_expiry": "09/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000016"
 	},
 	{
@@ -644,7 +644,7 @@
 		"latitude": 19.09194621,
 		"longitude": 72.87881565,
 		"plan_of_expiry": "15/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000011"
 	},
 	{
@@ -656,7 +656,7 @@
 		"latitude": 19.09598678,
 		"longitude": 72.90959132,
 		"plan_of_expiry": "30/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000016"
 	},
 	{
@@ -668,7 +668,7 @@
 		"latitude": 19.09388006,
 		"longitude": 72.91259155,
 		"plan_of_expiry": "21/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000019"
 	},
 	{
@@ -680,7 +680,7 @@
 		"latitude": 19.06804159,
 		"longitude": 72.82720863,
 		"plan_of_expiry": "10/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000019"
 	},
 	{
@@ -692,7 +692,7 @@
 		"latitude": 19.12064394,
 		"longitude": 72.91811381,
 		"plan_of_expiry": "11/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000010"
 	},
 	{
@@ -704,7 +704,7 @@
 		"latitude": 19.04189442,
 		"longitude": 72.90081435,
 		"plan_of_expiry": "09/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000010"
 	},
 	{
@@ -716,7 +716,7 @@
 		"latitude": 19.0853452,
 		"longitude": 72.90369853,
 		"plan_of_expiry": "11/02/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000010"
 	},
 	{
@@ -728,7 +728,7 @@
 		"latitude": 19.11682066,
 		"longitude": 72.89826678,
 		"plan_of_expiry": "13/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000019"
 	},
 	{
@@ -740,7 +740,7 @@
 		"latitude": 19.09486339,
 		"longitude": 72.88732849,
 		"plan_of_expiry": "08/03/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001d"
 	},
 	{
@@ -752,7 +752,7 @@
 		"latitude": 19.05562018,
 		"longitude": 72.88190487,
 		"plan_of_expiry": "18/12/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 3,
 		"planId": "5fa62cb8fc13ae657b00001d"
 	},
 	{
@@ -764,7 +764,7 @@
 		"latitude": 19.06878608,
 		"longitude": 72.90083986,
 		"plan_of_expiry": "07/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000018"
 	},
 	{
@@ -776,7 +776,7 @@
 		"latitude": 19.05656211,
 		"longitude": 72.83552848,
 		"plan_of_expiry": "21/03/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000014"
 	},
 	{
@@ -788,7 +788,7 @@
 		"latitude": 19.10466495,
 		"longitude": 72.88049032,
 		"plan_of_expiry": "15/03/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000014"
 	},
 	{
@@ -800,7 +800,7 @@
 		"latitude": 19.09394415,
 		"longitude": 72.83779145,
 		"plan_of_expiry": "03/12/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000014"
 	},
 	{
@@ -812,7 +812,7 @@
 		"latitude": 19.04349981,
 		"longitude": 72.90482099,
 		"plan_of_expiry": "17/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000004"
 	},
 	{
@@ -824,7 +824,7 @@
 		"latitude": 19.03942646,
 		"longitude": 72.8607985,
 		"plan_of_expiry": "07/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00000b"
 	},
 	{
@@ -836,7 +836,7 @@
 		"latitude": 19.11515471,
 		"longitude": 72.89096968,
 		"plan_of_expiry": "08/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00000b"
 	},
 	{
@@ -848,7 +848,7 @@
 		"latitude": 19.07787663,
 		"longitude": 72.93833512,
 		"plan_of_expiry": "03/03/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000015"
 	},
 	{
@@ -860,7 +860,7 @@
 		"latitude": 19.01539029,
 		"longitude": 72.890154,
 		"plan_of_expiry": "07/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000004"
 	},
 	{
@@ -872,7 +872,7 @@
 		"latitude": 19.07160459,
 		"longitude": 72.92088111,
 		"plan_of_expiry": "29/12/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000015"
 	},
 	{
@@ -884,7 +884,7 @@
 		"latitude": 19.041375,
 		"longitude": 72.84260482,
 		"plan_of_expiry": "07/01/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00000b"
 	},
 	{
@@ -896,7 +896,7 @@
 		"latitude": 19.09058734,
 		"longitude": 72.89134222,
 		"plan_of_expiry": "06/02/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000004"
 	},
 	{
@@ -908,7 +908,7 @@
 		"latitude": 19.04397635,
 		"longitude": 72.92992994,
 		"plan_of_expiry": "22/02/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000006"
 	},
 	{
@@ -920,7 +920,7 @@
 		"latitude": 19.06734492,
 		"longitude": 72.91926456,
 		"plan_of_expiry": "03/12/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000019"
 	},
 	{
@@ -932,7 +932,7 @@
 		"latitude": 19.05198488,
 		"longitude": 72.91939765,
 		"plan_of_expiry": "18/02/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000015"
 	},
 	{
@@ -944,7 +944,7 @@
 		"latitude": 19.10284044,
 		"longitude": 72.88080086,
 		"plan_of_expiry": "29/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000018"
 	},
 	{
@@ -956,7 +956,7 @@
 		"latitude": 19.04191519,
 		"longitude": 72.92220764,
 		"plan_of_expiry": "18/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000018"
 	},
 	{
@@ -968,7 +968,7 @@
 		"latitude": 19.05398504,
 		"longitude": 72.8965965,
 		"plan_of_expiry": "18/02/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000006"
 	},
 	{
@@ -980,7 +980,7 @@
 		"latitude": 19.03985555,
 		"longitude": 72.91209185,
 		"plan_of_expiry": "19/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b000018"
 	},
 	{
@@ -992,7 +992,7 @@
 		"latitude": 19.08082423,
 		"longitude": 72.92314421,
 		"plan_of_expiry": "26/01/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001a"
 	},
 	{
@@ -1004,7 +1004,7 @@
 		"latitude": 19.05751532,
 		"longitude": 72.8962282,
 		"plan_of_expiry": "01/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001c"
 	},
 	{
@@ -1016,7 +1016,7 @@
 		"latitude": 19.11291082,
 		"longitude": 72.86644003,
 		"plan_of_expiry": "15/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000009"
 	},
 	{
@@ -1028,7 +1028,7 @@
 		"latitude": 19.04100885,
 		"longitude": 72.92096175,
 		"plan_of_expiry": "16/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000c"
 	},
 	{
@@ -1040,7 +1040,7 @@
 		"latitude": 19.02733279,
 		"longitude": 72.90475096,
 		"plan_of_expiry": "01/02/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001a"
 	},
 	{
@@ -1052,7 +1052,7 @@
 		"latitude": 19.10273543,
 		"longitude": 72.88018978,
 		"plan_of_expiry": "02/02/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000006"
 	},
 	{
@@ -1064,7 +1064,7 @@
 		"latitude": 19.11645377,
 		"longitude": 72.91650365,
 		"plan_of_expiry": "18/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000007"
 	},
 	{
@@ -1076,7 +1076,7 @@
 		"latitude": 19.05329058,
 		"longitude": 72.92553059,
 		"plan_of_expiry": "15/03/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001a"
 	},
 	{
@@ -1088,7 +1088,7 @@
 		"latitude": 19.05354478,
 		"longitude": 72.89759051,
 		"plan_of_expiry": "23/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001a"
 	},
 	{
@@ -1100,7 +1100,7 @@
 		"latitude": 19.05436823,
 		"longitude": 72.8875018,
 		"plan_of_expiry": "25/11/2020",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000007"
 	},
 	{
@@ -1112,7 +1112,7 @@
 		"latitude": 19.10218132,
 		"longitude": 72.91684981,
 		"plan_of_expiry": "24/11/2020",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001c"
 	},
 	{
@@ -1124,7 +1124,7 @@
 		"latitude": 19.05840675,
 		"longitude": 72.94004071,
 		"plan_of_expiry": "21/01/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001c"
 	},
 	{
@@ -1136,7 +1136,7 @@
 		"latitude": 19.12214646,
 		"longitude": 72.8494472,
 		"plan_of_expiry": "10/02/2021",
-		"amount_of_usage": "medium",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001c"
 	},
 	{
@@ -1148,7 +1148,7 @@
 		"latitude": 19.1285621,
 		"longitude": 72.88802247,
 		"plan_of_expiry": "22/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1.5,
 		"planId": "5fa62cb8fc13ae657b00001c"
 	},
 	{
@@ -1160,7 +1160,7 @@
 		"latitude": 19.1132125,
 		"longitude": 72.83966514,
 		"plan_of_expiry": "22/03/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000c"
 	},
 	{
@@ -1172,7 +1172,7 @@
 		"latitude": 19.09043476,
 		"longitude": 72.860763,
 		"plan_of_expiry": "14/11/2020",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b00000e"
 	},
 	{
@@ -1184,7 +1184,7 @@
 		"latitude": 19.06274069,
 		"longitude": 72.93002846,
 		"plan_of_expiry": "17/02/2021",
-		"amount_of_usage": "low",
+		"amount_per_day": 1,
 		"planId": "5fa62cb8fc13ae657b000016"
 	},
 	{
@@ -1196,7 +1196,7 @@
 		"latitude": 19.07045933,
 		"longitude": 72.93946463,
 		"plan_of_expiry": "13/01/2021",
-		"amount_of_usage": "high",
+		"amount_per_day": 2,
 		"planId": "5fa62cb8fc13ae657b000007"
 	}
 ]

@@ -45,10 +45,11 @@ const addUser = async (req, res) => {
 				cpm: d.costPerMonth,
 			}
 		);
+		res.status(200).send(id);
 	} catch (err) {
 		res.status(500).send(err);
+		console.log(err);
 	} finally {
-		res.status(200).send(id);
 		await session.close();
 		await driver.close();
 	}

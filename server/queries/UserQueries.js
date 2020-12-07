@@ -62,12 +62,39 @@ const addUser = async (req, res) => {
 		await session.close();
 		await driver.close();
 	}
-	
+
 };
 
-const recommendPlans=async(req,res)=>{
-	const session=driver.session();
+const recommendPlans = async (req, res) => {
+	const id=req.params.uid;
+	const session = driver.session();
+	try {
+		const queryResult=await session.run(
+			` match (u:User{firstName:"Porter"})-[:USES]->(p:Plan)
+			match (p)-[:SIMILAR]-(p1:Plan) where p1.rating>p.rating 
+			match (u)-[:NEAR]->(u1:User)-[:USES]->(p2:Plan) 
+			where p1.id=p2.id  return p2`
+
+		);
+		queryResult.records.forEach((record,i)=>{
+			console.log(record.get(i).properties);
+
+		});
+		res.status(200).send("done");
+		
+	} catch (err) {
+		res.status(500).send(err);
+		console.log(err);
+	} finally {
+		//res.status(200).send(id);
+		//res.redirect('/recommend');
+		await session.close();
+		await driver.close();
+	}
 	
+
+
+
 
 
 };

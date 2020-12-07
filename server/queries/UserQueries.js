@@ -1,30 +1,37 @@
 const driver = require('../database/config');
-const { v4: uuidv4 } = require('uuid');
+const crypto = require('crypto');
 
-const getProviderId = (provider) => {
+const getProviderId = provider => {
 	switch (provider) {
 		case 'Jio':
-			return 1
+			return 1;
 		case 'Airtel':
-			return 2
+			return 2;
 		case 'Vodafone':
-			return 3
+			return 3;
 		case 'Idea':
-			return 4
+			return 4;
 		case 'BSNL':
-			return 5
+			return 5;
 	}
-}
+};
+
+const getHash = val => {
+	const shaSum = crypto.createHash('sha1');
+	return shaSum.update(val, 'utf8').digest('hex');
+};
 
 const addUser = async (req, res) => {
-	const id = uuidv4();
+	const id = getHash(req.body.email);
 	const session = driver.session();
 	const d = req.body;
 	const pid = getProviderId(d.provider);
 	try {
 		await session.run(
 			`
-			CREATE (a:User {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay})
+			MERGE (a:User {id: $id})
+			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay}
+			ON MATCH SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay}
 			WITH a
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
@@ -45,11 +52,16 @@ const addUser = async (req, res) => {
 				cpm: d.costPerMonth,
 			}
 		);
+		res.status(200).send(id);
 	} catch (err) {
 		res.status(500).send(err);
+		console.log(err);
 	} finally {
+<<<<<<< HEAD
 		//res.status(200).send(id);
 		res.redirect('/recommend');
+=======
+>>>>>>> 1280bb8798fab9fe548fa80c8945509934b3a832
 		await session.close();
 		await driver.close();
 	}

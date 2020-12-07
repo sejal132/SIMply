@@ -80,7 +80,7 @@ const recommendPlans = async (req, res) => {
 			console.log(record.get(i).properties);
 
 		});
-		res.status(200).send("done");
+		res.status(200).send(queryResult.records);
 		
 	} catch (err) {
 		res.status(500).send(err);

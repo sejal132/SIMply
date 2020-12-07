@@ -58,29 +58,31 @@ const addUser = async (req, res) => {
 		console.log(err);
 	} finally {
 		//res.status(200).send(id);
-		res.redirect('/recommend');
+		// res.redirect('/recommend');
 		await session.close();
-		await driver.close();
 	}
 
 };
 
 const recommendPlans = async (req, res) => {
-	const id=req.params.uid;
+	const id=req.query.uid;
 	const session = driver.session();
 	try {
 		const queryResult=await session.run(
-			` match (u:User{firstName:"Porter"})-[:USES]->(p:Plan)
+			`match (u:User{id: $id})-[:USES]->(p:Plan)
 			match (p)-[:SIMILAR]-(p1:Plan) where p1.rating>p.rating 
-			match (u)-[:NEAR]->(u1:User)-[:USES]->(p2:Plan) 
-			where p1.id=p2.id  return p2`
-
+			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
+			where p1.id=p2.id return p2`,
+			{
+				id: id,
+			}
 		);
+		const planData = []
 		queryResult.records.forEach((record,i)=>{
 			console.log(record.get(i).properties);
-
+			planData.push(record.get(i).properties);
 		});
-		res.status(200).send(queryResult.records);
+		res.status(200).send(planData);
 		
 	} catch (err) {
 		res.status(500).send(err);
@@ -89,14 +91,7 @@ const recommendPlans = async (req, res) => {
 		//res.status(200).send(id);
 		//res.redirect('/recommend');
 		await session.close();
-		await driver.close();
 	}
-	
-
-
-
-
-
 };
 
 module.exports = {

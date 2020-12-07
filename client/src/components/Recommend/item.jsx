@@ -13,6 +13,23 @@ const useStyles = makeStyles(theme => ({
 	},
 }));
 
+const getProvider = pid => {
+	switch (pid) {
+		case 1:
+			return 'Jio';
+		case 2:
+			return 'Airtel';
+		case 3:
+			return 'Vodafone';
+		case 4:
+			return 'Idea';
+		case 5:
+			return 'BSNL';
+		default:
+			return '';
+	}
+};
+
 const Item = props => {
 	const classes = useStyles();
 	const [isOpen, setIsOpen] = useState(false);
@@ -23,19 +40,19 @@ const Item = props => {
 	return (
 		<React.Fragment>
 			<ListItem button onClick={openHandler}>
-				<ListItemText primary={`Provider: ${props.provider}`} />
+				<ListItemText primary={`Provider: ${getProvider(props.provider_id)}`} />
 				{isOpen ? <ExpandLess /> : <ExpandMore />}
 			</ListItem>
 			<Collapse in={isOpen} timeout='auto' unmountOnExit>
 				<List component='div' disablePadding>
 					<ListItem className={classes.nested}>
 						<ListItemText
-							primary={`Cost per month: Rs ${props.cost}`}
+							primary={`Cost per month: Rs ${props.costPerMonth}`}
 						/>
 					</ListItem>
 					<ListItem className={classes.nested}>
 						<ListItemText
-							primary={`Amount per day: ${props.amount} gb`}
+							primary={`Amount per day: ${props.amountOfData} gb`}
 						/>
 					</ListItem>
 					<ListItem className={classes.nested}>

@@ -19,9 +19,12 @@ const Recommend = () => {
 	const [planData, setPlanData] = useState([]);
 
 	useEffect(() => {
+		const uid = localStorage.getItem('id');
 		const fetchData = async () => {
-			const data = await axios.get('http://localhost:8080/recommend');
-			setPlanData(data);
+			const data = await axios.get(
+				`http://localhost:8080/recommend/?uid=${uid}`
+			);
+			setPlanData(data.data);
 		};
 		fetchData();
 	}, []);
@@ -36,7 +39,7 @@ const Recommend = () => {
 			}
 			className={classes.root}>
 			{planData.map(plan => (
-				<Item {...plan} />
+				<Item key={plan.id} {...plan} />
 			))}
 		</List>
 	);

@@ -26,6 +26,8 @@ const SignupForm = props => {
 	const [amountPerDay, setAmountPerDay] = useState(1);
 	const [provider, setProvider] = useState('Jio');
 	const [type, setType] = useState('prepaid');
+	const [profession, setProfession] = useState('student');
+	const [country, setCountry] = useState('India');
 
 	const [errors, setErrors] = useState({
 		firstName: '',
@@ -61,6 +63,10 @@ const SignupForm = props => {
 	const handleAmountChange = e => setAmountPerDay(e.target.value);
 
 	const handleTypeChange = e => setType(e.target.value);
+
+	const handleProfessionChange = e => setProfession(e.target.value);
+
+	const handleCountryChange = e => setCountry(e.target.value);
 
 	const isFormValid = () => {
 		let formIsValid = true;
@@ -126,6 +132,8 @@ const SignupForm = props => {
 				provider: provider,
 				costPerMonth: parseFloat(costPerMonth),
 				type: type,
+				profession: profession,
+				country: country,
 			};
 			console.log(dataObj);
 			setErrors({
@@ -293,6 +301,44 @@ const SignupForm = props => {
 									<MenuItem value={1.5}>1.5</MenuItem>
 									<MenuItem value={2}>2</MenuItem>
 									<MenuItem value={3}>3</MenuItem>
+								</Select>
+							</FormControl>
+						</Grid>
+
+						<Grid item xs={6}>
+							<FormControl fullWidth>
+								<InputLabel id='demo-simple-select-label'>
+									Profession
+								</InputLabel>
+								<Select
+									labelId='demo-simple-select-label'
+									id='demo-simple-select'
+									value={profession}
+									onChange={handleProfessionChange}>
+									<MenuItem value={'student'}>
+										Student
+									</MenuItem>
+									<MenuItem value={'tourist'}>
+										Tourist
+									</MenuItem>
+									<MenuItem value={'worker'}>Worker</MenuItem>
+								</Select>
+							</FormControl>
+						</Grid>
+
+						<Grid item xs={6}>
+							<FormControl fullWidth>
+								<InputLabel id='demo-simple-select-label'>
+									Country
+								</InputLabel>
+								<Select
+									labelId='demo-simple-select-label'
+									id='demo-simple-select'
+									value={country}
+									onChange={handleCountryChange}>
+									<MenuItem value={'India'}>India</MenuItem>
+									<MenuItem value={'US'}>US</MenuItem>
+									<MenuItem value={'UK'}>UK</MenuItem>
 								</Select>
 							</FormControl>
 						</Grid>

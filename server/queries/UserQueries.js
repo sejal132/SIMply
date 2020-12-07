@@ -57,11 +57,8 @@ const addUser = async (req, res) => {
 		res.status(500).send(err);
 		console.log(err);
 	} finally {
-<<<<<<< HEAD
 		//res.status(200).send(id);
 		res.redirect('/recommend');
-=======
->>>>>>> 1280bb8798fab9fe548fa80c8945509934b3a832
 		await session.close();
 		await driver.close();
 	}

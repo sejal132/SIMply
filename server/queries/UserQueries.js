@@ -48,12 +48,22 @@ const addUser = async (req, res) => {
 	} catch (err) {
 		res.status(500).send(err);
 	} finally {
-		res.status(200).send(id);
+		//res.status(200).send(id);
+		res.redirect('/recommend');
 		await session.close();
 		await driver.close();
 	}
+	
+};
+
+const recommendPlans=async(req,res)=>{
+	const session=driver.session();
+	
+
+
 };
 
 module.exports = {
 	addUser,
+	recommendPlans
 };

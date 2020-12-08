@@ -120,6 +120,24 @@ const user_user = async () => {
 	} catch (error1) {
 		console.log(error1);
 	}
+	try {
+		session = driver.session();
+		await session.run(
+			'MATCH (a:User) WITH a MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession AND a.id<>b.id MERGE (a)-[r:SIMILAR_WORK]->(b)'
+
+		);
+		await session.close();
+		session = driver.session();
+		await session.run(
+			'MATCH (a:User)-[r]-(b:User) WITH a, type(r) as type, collect(r) as rels, b WHERE size(rels) > 1 UNWIND tail(rels) as rel DELETE rel'
+
+		);
+		await session.close();
+
+	} catch (error2) {
+		console.log(error2);
+
+	}
 	console.log('Done user <-> user');
 };
 

@@ -23,7 +23,7 @@ const addData = async () => {
 			session = driver.session();
 			try {
 				await session.run(
-					'CREATE (a:User {firstName: $first_name, lastName: $last_name, email: $email, id: $id, lat: $lat, long: $long, expiryOfPlan: $eop, amountPerDay: $aou, planId: $planId})',
+					'CREATE (a:User {firstName: $first_name, lastName: $last_name, email: $email, id: $id, lat: $lat, long: $long, expiryOfPlan: $eop, amountPerDay: $aou, planId: $planId,country:$country,profession:$profession})',
 					{
 						first_name: d.first_name,
 						last_name: d.last_name,
@@ -34,6 +34,8 @@ const addData = async () => {
 						eop: d.plan_of_expiry,
 						aou: d.amount_per_day,
 						planId: d.planId,
+						country:d.country,
+						profession:d.profession
 					}
 				);
 				await session.close();

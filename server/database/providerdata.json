@@ -1,22 +1,33 @@
 [
     {
         "name": "Jio",
-        "id": 1
+        "id": 1,
+        "network_strength":0,
+        "number_of_users":0
     },
     {
         "name": "Airtel",
-        "id": 2
+        "id": 2,
+        "network_strength":0,
+        "number_of_users":0
+        
     },
     {
         "name": "Vodafone",
-        "id": 3
+        "id": 3,
+        "network_strength":0,
+        "number_of_users":0
     },
     {
         "name": "Idea",
-        "id": 4
+        "id": 4,
+        "network_strength":0,
+        "number_of_users":0
     },
     {
         "name": "BSNL",
-        "id": 5
+        "id": 5,
+        "network_strength":0,
+        "number_of_users":0
     }
 ]

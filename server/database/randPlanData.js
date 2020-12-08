@@ -23,17 +23,18 @@ const addData = async () => {
 			session = driver.session();
 			try {
 				await session.run(
-					'CREATE (a:Plan {type: $type, validity: $validity, numberOfUsers: $nou, rating: $rating, amountOfData: $aod, costPerMonth: $cpm, id: $id, provider_id: $provider_id, perks: $perks})',
+					'CREATE (a:Plan {type: $type, validity: $validity, numberOfUsers: $nou, amountOfData: $aod, costPerMonth: $cpm, id: $id, provider_id: $provider_id, perks: $perks, userRating: $userRating, systemRating: $systemRating})',
 					{
 						type: d.type,
 						validity: d.validity_in_months,
 						nou: d.number_of_users,
-						rating: d.rating,
 						aod: d.amount_of_data,
 						cpm: d.cost_per_month,
 						id: d.id.$oid,
 						provider_id: d.provider_id,
 						perks: d.Perks,
+						userRating: d.user_rating,
+						systemRating: d.system_rating,
 					}
 				);
 				await session.close();

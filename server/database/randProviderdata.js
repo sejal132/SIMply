@@ -22,10 +22,15 @@ const addData = async () => {
 			const d = providerData[index];
 			session = driver.session();
 			try {
-				await session.run('CREATE (a:Provider {name:$name,id:$id})', {
-					name: d.name,
-					id: d.id,
-				});
+				await session.run(
+					'CREATE (a:Provider {name:$name, id:$id, numberOfUsers: $nou, networkStrength: $ns})',
+					{
+						name: d.name,
+						id: d.id,
+						nou: d.number_of_users,
+						ns: d.network_strength,
+					}
+				);
 				await session.close();
 			} catch (error1) {
 				console.log(error1);

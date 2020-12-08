@@ -152,6 +152,7 @@ const SignupForm = props => {
 			} catch (error) {
 				console.log(error);
 			}
+			props.history.push('/recommend');
 		} else {
 			e.preventDefault();
 		}
@@ -318,10 +319,10 @@ const SignupForm = props => {
 									<MenuItem value={'student'}>
 										Student
 									</MenuItem>
-									<MenuItem value={'tourist'}>
-										Tourist
+									<MenuItem value={'travel'}>
+										Travel
 									</MenuItem>
-									<MenuItem value={'worker'}>Worker</MenuItem>
+									<MenuItem value={'work'}>Work</MenuItem>
 								</Select>
 							</FormControl>
 						</Grid>
@@ -337,8 +338,12 @@ const SignupForm = props => {
 									value={country}
 									onChange={handleCountryChange}>
 									<MenuItem value={'India'}>India</MenuItem>
-									<MenuItem value={'US'}>US</MenuItem>
-									<MenuItem value={'UK'}>UK</MenuItem>
+									<MenuItem value={'USA'}>USA</MenuItem>
+									<MenuItem value={'Great Britain'}>Great Britain</MenuItem>
+									<MenuItem value={'Australia'}>
+										Australia
+									</MenuItem>
+									<MenuItem value={'Russia'}>Russia</MenuItem>
 								</Select>
 							</FormControl>
 						</Grid>

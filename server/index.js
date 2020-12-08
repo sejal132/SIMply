@@ -10,6 +10,7 @@ app.use(bodyParser.json())
 app.use(cors());
 app.post("/adduser", db.addUser);
 app.get('/recommend',db.recommendPlans);
+app.get('/foreign',db.recommendForeign);
 
 app.listen(8080, () => {
   console.log("Server started at http://localhost:8080");

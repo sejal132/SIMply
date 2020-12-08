@@ -93,8 +93,31 @@ const recommendPlans = async (req, res) => {
 		await session.close();
 	}
 };
+const recommendForeign=async(req,res)=>{
+	const id=req.query.uid;
+	const country=req.query.country;
+	const profession=req.query.profession;
+	const session=driver.session();
+	try{
+		const queryResult=await session.run(
+			`match (a:User{id:$id})-[:USES]->(p1:Plan) with a 
+			match(b:User{country:$country,profession:$profession})-[:USES]->(p:Plan) 
+			where a.id<>b.id return p1`,
+			{
+				id:id,
+				country:country,
+				profession:profession
+			}
+		);
+
+	}catch(error){
+		console.log(error);
+	}
+
+}
 
 module.exports = {
 	addUser,
-	recommendPlans
+	recommendPlans,
+	recommendForeign
 };

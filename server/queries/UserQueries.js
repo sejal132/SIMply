@@ -61,14 +61,13 @@ const addUser = async (req, res) => {
 		// res.redirect('/recommend');
 		await session.close();
 	}
-
 };
 
 const recommendPlans = async (req, res) => {
-	const id=req.query.uid;
+	const id = req.query.uid;
 	const session = driver.session();
 	try {
-		const queryResult=await session.run(
+		const queryResult = await session.run(
 			`match (u:User{id: $id})-[:USES]->(p:Plan)
 			match (p)-[:SIMILAR]-(p1:Plan) where p1.rating>p.rating 
 			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
@@ -77,13 +76,12 @@ const recommendPlans = async (req, res) => {
 				id: id,
 			}
 		);
-		const planData = []
-		queryResult.records.forEach((record,i)=>{
-			console.log(record.get(i).properties);
-			planData.push(record.get(i).properties);
+		const planData = [];
+		queryResult.records.forEach((record) => {
+			console.log(record.get(0).properties);
+			planData.push(record.get(0).properties);
 		});
 		res.status(200).send(planData);
-		
 	} catch (err) {
 		res.status(500).send(err);
 		console.log(err);
@@ -93,31 +91,36 @@ const recommendPlans = async (req, res) => {
 		await session.close();
 	}
 };
-const recommendForeign=async(req,res)=>{
-	const id=req.query.uid;
-	const country=req.query.country;
-	const profession=req.query.profession;
-	const session=driver.session();
-	try{
-		const queryResult=await session.run(
-			`match (a:User{id:$id})-[:USES]->(p1:Plan) with a 
+const recommendForeign = async (req, res) => {
+	const id = req.query.uid;
+	const country = req.query.country;
+	const profession = req.query.profession;
+	const session = driver.session();
+	try {
+		const queryResult = await session.run(
+			`match (a:User{id:$id}) with a
 			match(b:User{country:$country,profession:$profession})-[:USES]->(p:Plan) 
-			where a.id<>b.id return p1`,
+			where a.id<>b.id return p`,
 			{
-				id:id,
-				country:country,
-				profession:profession
+				id: id,
+				country: country,
+				profession: profession,
 			}
 		);
-
-	}catch(error){
+		const planData = [];
+		queryResult.records.forEach(record => {
+			planData.push(record.get(0).properties);
+			console.log(planData);
+		});
+		res.status(200).send(planData);
+	} catch (error) {
+		res.status(500).send(error);
 		console.log(error);
 	}
-
-}
+};
 
 module.exports = {
 	addUser,
 	recommendPlans,
-	recommendForeign
+	recommendForeign,
 };

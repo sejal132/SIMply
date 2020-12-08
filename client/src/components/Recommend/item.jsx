@@ -40,7 +40,9 @@ const Item = props => {
 	return (
 		<React.Fragment>
 			<ListItem button onClick={openHandler}>
-				<ListItemText primary={`Provider: ${getProvider(props.provider_id)}`} />
+				<ListItemText
+					primary={`Provider: ${getProvider(props.provider_id)}`}
+				/>
 				{isOpen ? <ExpandLess /> : <ExpandMore />}
 			</ListItem>
 			<Collapse in={isOpen} timeout='auto' unmountOnExit>
@@ -71,9 +73,13 @@ const Item = props => {
 							primary={`Number of Users: ${props.numberOfUsers}`}
 						/>
 					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText primary={`Perks: ${props.perks}`} />
-					</ListItem>
+					{props.perks ? (
+						<ListItem className={classes.nested}>
+							<ListItemText primary={`Perks: ${props.perks}`} />
+						</ListItem>
+					) : <ListItem className={classes.nested}>
+						<ListItemText primary={`Perks: none`} />
+					</ListItem>}
 				</List>
 			</Collapse>
 		</React.Fragment>

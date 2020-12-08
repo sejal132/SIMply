@@ -1,24 +1,43 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import {
+	BrowserRouter as Router,
+	Redirect,
+	Route,
+	Switch,
+} from 'react-router-dom';
 import SignupForm from './components/Form/form';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Recommend from './components/Recommend/recommend';
+import Foreign from './components/Foreign/foreign';
 
 function App() {
 	const [id, setId] = useState('');
 
 	useEffect(() => {
-		setId(localStorage.getItem('id'));
+		const uid = localStorage.getItem('id');
+		if (uid) {
+			setId(uid);
+		}
 	}, []);
 
-	let component = <Route path='/' component={SignupForm} />;
+	let component = <Redirect from='/' to='/signup' />;
 
 	if (id && id.length !== 0) {
-		console.log(id);
-		component = <Route path='/' component={Recommend} />;
+		component = <Redirect from='/' to='/recommend' />;
 	}
 
-	return <Router>{component}</Router>;
+	return (
+		<React.Fragment>
+			<Router>
+				<Switch>
+					<Route exact path='/' render={() => component} />
+					<Route exact path='/foreign-travel' component={Foreign} />
+					<Route exact path='/recommend' component={Recommend} />
+					<Route exact path='/signup' component={SignupForm} />
+				</Switch>
+			</Router>
+		</React.Fragment>
+	);
 }
 
 export default App;

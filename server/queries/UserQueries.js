@@ -69,15 +69,18 @@ const recommendPlans = async (req, res) => {
 	try {
 		const queryResult = await session.run(
 			`match (u:User{id: $id})-[:USES]->(p:Plan)
-			match (p)-[:SIMILAR]-(p1:Plan) where p1.rating>p.rating 
+			match (p)-[:SIMILAR]-(p1:Plan) 
+			where (p1.userRating + p1.systemRating) > (p1.userRating + p1.systemRating)
 			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
-			where p1.id=p2.id return p2`,
+			where p1.id=p2.id 
+			set p2.systemRating = p2.systemRating + 0.5
+			return p2`,
 			{
 				id: id,
 			}
 		);
 		const planData = [];
-		queryResult.records.forEach((record) => {
+		queryResult.records.forEach(record => {
 			console.log(record.get(0).properties);
 			planData.push(record.get(0).properties);
 		});

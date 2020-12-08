@@ -1,5 +1,7 @@
 const driver = require('../database/config');
 const crypto = require('crypto');
+const NetworkSpeed = require('network-speed');
+const testNetworkSpeed = new NetworkSpeed();
 
 const getProviderId = provider => {
 	switch (provider) {
@@ -26,17 +28,37 @@ const addUser = async (req, res) => {
 	const session = driver.session();
 	const d = req.body;
 	const pid = getProviderId(d.provider);
+
+	//code to extract network strength of user
+	getNetworkDownloadSpeed();
+ 
+	async function getNetworkDownloadSpeed() {
+	  const baseUrl = 'http://eu.httpbin.org/stream-bytes/50000000';
+	  const fileSizeInBytes = 50000000;
+	  const speed = await testNetworkSpeed.checkDownloadSpeed(baseUrl, fileSizeInBytes);
+	  var netstrength=speed.mbps;
+	}
+	
+
+
+
+
 	try {
 		await session.run(
 			`
 			MERGE (a:User {id: $id})
-			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay}
-			ON MATCH SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay}
+			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession;$profession}
+			ON MATCH SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession:$profession}
 			WITH a
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
 			WITH a
 			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = $amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
+			MERGE (p:Plan)
+			ON MATCH SET p+={userRating:(((p.userRating*p.numberOfUsers)+$userRating)/(p.numberOfUsers+1)),numberOfUsers+=1}
+			MATCH (p:Plan)-[:BELONGS_TO]:(pr:Provider)
+			ON MATCH SET pr+={networkStrength:(((pr.networkStrength*pr.numberOfUsers)+$networkStrength)/(pr.numberOfUsers+1)),numberOfUsers+=1}
+			MATCH (a) WITH A MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession MERGE (a)-[:SIMILAR_WORK]->(b)
 			MERGE (a)-[r:USES]->(p)`,
 			{
 				firstname: d.firstName,
@@ -50,6 +72,10 @@ const addUser = async (req, res) => {
 				pid: pid,
 				type: d.type,
 				cpm: d.costPerMonth,
+				userRating:d.userRating,
+				networkStrength:netstrength,
+				country:d.country,
+				profession:d.profession
 			}
 		);
 		res.status(200).send(id);
@@ -66,6 +92,7 @@ const addUser = async (req, res) => {
 const recommendPlans = async (req, res) => {
 	const id = req.query.uid;
 	const session = driver.session();
+
 	try {
 		const queryResult = await session.run(
 			`match (u:User{id: $id})-[:USES]->(p:Plan)

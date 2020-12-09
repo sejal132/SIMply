@@ -1,18 +1,5 @@
-import React, { useState } from 'react';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import Collapse from '@material-ui/core/Collapse';
-import { makeStyles } from '@material-ui/core/styles';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import List from '@material-ui/core/List';
-
-const useStyles = makeStyles(theme => ({
-	nested: {
-		paddingLeft: theme.spacing(4),
-	},
-}));
-
+import React from 'react';
+import './Recommend.css';
 const getProvider = pid => {
 	switch (pid) {
 		case 1:
@@ -31,57 +18,26 @@ const getProvider = pid => {
 };
 
 const Item = props => {
-	const classes = useStyles();
-	const [isOpen, setIsOpen] = useState(false);
 
-	const openHandler = () => {
-		setIsOpen(!isOpen);
-	};
 	return (
 		<React.Fragment>
-			<ListItem button onClick={openHandler}>
-				<ListItemText
-					primary={`Provider: ${getProvider(props.provider_id)}`}
-				/>
-				{isOpen ? <ExpandLess /> : <ExpandMore />}
-			</ListItem>
-			<Collapse in={isOpen} timeout='auto' unmountOnExit>
-				<List component='div' disablePadding>
-					<ListItem className={classes.nested}>
-						<ListItemText
-							primary={`Cost per month: Rs ${props.costPerMonth}`}
-						/>
-					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText
-							primary={`Amount per day: ${props.amountOfData} gb`}
-						/>
-					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText
-							primary={`Validity: ${props.validity} months`}
-						/>
-					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText primary={`Rating: ${props.rating}/10`} />
-					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText primary={`Type: ${props.type}`} />
-					</ListItem>
-					<ListItem className={classes.nested}>
-						<ListItemText
-							primary={`Number of Users: ${props.numberOfUsers}`}
-						/>
-					</ListItem>
-					{props.perks ? (
-						<ListItem className={classes.nested}>
-							<ListItemText primary={`Perks: ${props.perks}`} />
-						</ListItem>
-					) : <ListItem className={classes.nested}>
-						<ListItemText primary={`Perks: none`} />
-					</ListItem>}
-				</List>
-			</Collapse>
+			<div class="col-md-4">
+				<div class="post-entry">
+					<a href="blog-single.html" class="d-block mb-4">
+
+					</a>
+					<div class="post-text">
+
+						<h3><a href="#">Provider: {getProvider(props.provider_id)}</a></h3>
+						<p>Amount of Data: {props.amountOfData}</p>
+						<p>Cost Per Month: {props.costPerMonth}</p>
+						<p>Validity: {props.validity} months</p>
+						<p>User Rating: {props.userRating} /10</p>
+						<p>Type: {props.type}</p>
+						{props.perks ? <p>Perks: {props.perks}</p> : null}
+					</div>
+				</div>
+			</div>
 		</React.Fragment>
 	);
 };

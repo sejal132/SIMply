@@ -34,10 +34,10 @@ function App() {
 			{/* <Header /> */}
 			<Router>
 				<Switch>
-					<Route exact path='/' component={HeroSection} />
+					<Route exact path='/' render={()=><HeroSection id={id} />} />
 					<Route exact path='/foreign-travel' component={Foreign} />
 					<Route exact path='/recommend' component={Recommend} />
-					<Route exact path='/signup' component={SignupForm} />
+					<Route exact path='/signup' component={Form} />
 				</Switch>
 			</Router>
 		</React.Fragment>

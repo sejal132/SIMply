@@ -1,12 +1,25 @@
 import React from 'react';
 import './HeroSection.css';
+import {Link} from 'react-router-dom';
+import { id } from 'date-fns/locale';
 
-function HeroSection() {
-    return (
+
+function HeroSection(props) {
+  const clickHandler = (e) => {
+    e.preventDefault();
+    if (props.id.length === 0) {
+      props.history.push('/signup')
+    } else {
+      props.history.push('/recommend')
+    }
+
+
+  }
+  return (
     <div>
-        <section class="hero-section" id="hero">
+      <section class="hero-section" id="hero">
 
-    {/* <div class="wave">
+        {/* <div class="wave">
 
       <svg width="100%" height="355px" viewBox="0 0 1920 355" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" >
@@ -18,30 +31,29 @@ function HeroSection() {
 
     </div> */}
 
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-12 hero-text-image">
-          <div class="row">
-            <div class="col-lg-7 text-center text-lg-left">
-              <h1 data-aos="fade-right">Promote Your App with SoftLand</h1>
-              <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur
-                adipisicing elit.</p>
-              <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="#" class="btn btn-outline-white">Get started</a></p>
-            </div>
-            {/* <div class="col-lg-5 iphone-wrap">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-12 hero-text-image">
+              <div class="row">
+                <div class="col-lg-7 text-center text-lg-left">
+                  <h1 data-aos="fade-right">Welcome to SIMply!</h1>
+                  <p class="mb-5" data-aos="fade-right" data-aos-delay="100">To know which plans are best suited for you get started!</p>
+             <Link to={props.id.length===0?'/signup':'/recommend'}><p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a class="btn btn-outline-white" >Get started</a></p></Link>     
+                </div>
+                {/* <div class="col-lg-5 iphone-wrap">
               <img src="phone_1.png" alt="Image" class="phone-1" data-aos="fade-right" />
               <img src="phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200" />
             </div> */}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+
+      </section>
     </div>
 
-  </section>
-  </div>
 
-
-    );
+  );
 }
 
 export default HeroSection;

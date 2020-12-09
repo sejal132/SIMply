@@ -6,7 +6,8 @@ import {
 	Route,
 	Switch,
 } from 'react-router-dom';
-import SignupForm from './components/Form/form';
+import Form from './components/Form/form';
+import SignupForm from './components/Form/SignupForm';
 import Recommend from './components/Recommend/recommend';
 import Foreign from './components/Foreign/foreign';
 
@@ -33,7 +34,7 @@ function App() {
 					<Route exact path='/' render={() => component} />
 					<Route exact path='/foreign-travel' component={Foreign} />
 					<Route exact path='/recommend' component={Recommend} />
-					<Route exact path='/signup' component={SignupForm} />
+					<Route exact path='/signup' component={Form} />
 				</Switch>
 			</Router>
 		</React.Fragment>

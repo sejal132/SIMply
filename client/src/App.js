@@ -10,6 +10,7 @@ import Form from './components/Form/form';
 import SignupForm from './components/Form/SignupForm';
 import Recommend from './components/Recommend/recommend';
 import Foreign from './components/Foreign/foreign';
+import Header from './components/Header/Header';
 
 function App() {
 	const [id, setId] = useState('');
@@ -29,6 +30,7 @@ function App() {
 
 	return (
 		<React.Fragment>
+			<Header />
 			<Router>
 				<Switch>
 					<Route exact path='/' render={() => component} />

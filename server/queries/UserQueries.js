@@ -29,25 +29,19 @@ const addUser = async (req, res) => {
 	const d = req.body;
 	const pid = getProviderId(d.provider);
 
-	//code to extract network strength of user
-	getNetworkDownloadSpeed();
- 
-	async function getNetworkDownloadSpeed() {
-	  const baseUrl = 'http://eu.httpbin.org/stream-bytes/50000000';
-	  const fileSizeInBytes = 50000000;
-	  const speed = await testNetworkSpeed.checkDownloadSpeed(baseUrl, fileSizeInBytes);
-	  var netstrength=speed.mbps;
-	}
-	
-
-
-
+	const baseUrl = 'http://eu.httpbin.org/stream-bytes/50000000';
+	const fileSizeInBytes = 50000000;
+	const speed = await testNetworkSpeed.checkDownloadSpeed(
+		baseUrl,
+		fileSizeInBytes
+	);
+	var netstrength = speed.mbps;
 
 	try {
 		await session.run(
 			`
 			MERGE (a:User {id: $id})
-			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession;$profession}
+			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession:$profession}
 			ON MATCH SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession:$profession}
 			WITH a
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
@@ -72,10 +66,10 @@ const addUser = async (req, res) => {
 				pid: pid,
 				type: d.type,
 				cpm: d.costPerMonth,
-				userRating:d.userRating,
-				networkStrength:netstrength,
-				country:d.country,
-				profession:d.profession
+				userRating: d.userRating,
+				networkStrength: netstrength,
+				country: d.country,
+				profession: d.profession,
 			}
 		);
 		res.status(200).send(id);

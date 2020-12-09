@@ -28,12 +28,14 @@ const SignupForm = props => {
 	const [type, setType] = useState('prepaid');
 	const [profession, setProfession] = useState('student');
 	const [country, setCountry] = useState('India');
+	const [rating, setRating] = useState(1);
 
 	const [errors, setErrors] = useState({
 		firstName: '',
 		lastName: '',
 		email: '',
 		costPerMonth: '',
+		rating: '',
 	});
 
 	const handleFirstNameChange = e => setFirstName(e.target.value);
@@ -67,6 +69,8 @@ const SignupForm = props => {
 	const handleProfessionChange = e => setProfession(e.target.value);
 
 	const handleCountryChange = e => setCountry(e.target.value);
+
+	const handleRatingChange = e => setRating(e.target.value);
 
 	const isFormValid = () => {
 		let formIsValid = true;
@@ -106,7 +110,14 @@ const SignupForm = props => {
 			formIsValid = false;
 			setErrors(prevErrors => ({
 				...prevErrors,
-				costPerMonth: '*Cost per month cannot be zero or null',
+				costPerMonth: '*Cost per month cannot be zero or empty',
+			}));
+		}
+		if (!rating) {
+			formIsValid = false;
+			setErrors(prevErrors => ({
+				...prevErrors,
+				rating: '*Rating cannot empty',
 			}));
 		}
 		return formIsValid;
@@ -134,6 +145,7 @@ const SignupForm = props => {
 				type: type,
 				profession: profession,
 				country: country,
+				userRating: rating,
 			};
 			console.log(dataObj);
 			setErrors({
@@ -306,7 +318,7 @@ const SignupForm = props => {
 							</FormControl>
 						</Grid>
 
-						<Grid item xs={6}>
+						<Grid item xs={4}>
 							<FormControl fullWidth>
 								<InputLabel id='demo-simple-select-label'>
 									Profession
@@ -327,7 +339,7 @@ const SignupForm = props => {
 							</FormControl>
 						</Grid>
 
-						<Grid item xs={6}>
+						<Grid item xs={4}>
 							<FormControl fullWidth>
 								<InputLabel id='demo-simple-select-label'>
 									Country
@@ -346,6 +358,26 @@ const SignupForm = props => {
 									<MenuItem value={'Russia'}>Russia</MenuItem>
 								</Select>
 							</FormControl>
+						</Grid>
+
+						<Grid item xs={4}>
+							<TextField
+								fullWidth
+								required
+								error={errors.costPerMonth}
+								name='rating'
+								value={rating}
+								InputProps={{
+									inputProps: {
+										min: 1,
+										max: 10,
+									},
+								}}
+								type='number'
+								label='Rating'
+								helperText={errors.costPerMonth}
+								onChange={handleRatingChange}
+							/>
 						</Grid>
 
 						<Grid item xs={12}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css';
 
 function Header() {
     return (
@@ -31,7 +32,7 @@ function Header() {
                         </nav>
                     </div>
 
-                    <div class="col-6 d-inline-block d-lg-none ml-md-0 py-3" style="position: relative; top: 3px;">
+                    <div class="col-6 d-inline-block d-lg-none ml-md-0 py-3" style={{position: 'relative', top: '3px'}}>
 
                         <a href="#" class="burger site-menu-toggle js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
                             <span></span>

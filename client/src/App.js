@@ -11,6 +11,7 @@ import SignupForm from './components/Form/SignupForm';
 import Recommend from './components/Recommend/recommend';
 import Foreign from './components/Foreign/foreign';
 import Header from './components/Header/Header';
+import HeroSection from './components/Hero Section/HeroSection';
 
 function App() {
 	const [id, setId] = useState('');
@@ -30,13 +31,13 @@ function App() {
 
 	return (
 		<React.Fragment>
-			<Header />
+			{/* <Header /> */}
 			<Router>
 				<Switch>
-					<Route exact path='/' render={() => component} />
+					<Route exact path='/' component={HeroSection} />
 					<Route exact path='/foreign-travel' component={Foreign} />
 					<Route exact path='/recommend' component={Recommend} />
-					<Route exact path='/signup' component={Form} />
+					<Route exact path='/signup' component={SignupForm} />
 				</Switch>
 			</Router>
 		</React.Fragment>

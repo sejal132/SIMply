@@ -117,7 +117,10 @@ const recommendPlans = async (req, res) => {
 		const queryResult1 = await session.run(
 			`match (u:User{id: $id})-[:USES]->(p:Plan)
 			match (p)-[:SIMILAR]-(p1:Plan) 
-			where (p1.userRating + p1.systemRating) > (p.userRating + p.systemRating)
+			match (pr:Provider{id:p.provider_id}),(pr1:Provider{id:p1.provider_id})
+			with abs(pr1.networkStrength-pr.networkStrength) as netdiff,p1,p
+			where (p1.userRating + p1.systemRating) > (p.userRating + p.systemRating) 
+			and netdiff<=50
 			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
 			where p1.id=p2.id 
 			set p2.systemRating = p2.systemRating + 0.5

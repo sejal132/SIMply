@@ -25,7 +25,7 @@ const getHash = val => {
 
 const addUser = async (req, res) => {
 	const id = getHash(req.body.email);
-	const session = driver.session();
+	let session = driver.session();
 	const d = req.body;
 	const pid = getProviderId(d.provider);
 
@@ -36,42 +36,68 @@ const addUser = async (req, res) => {
 		fileSizeInBytes
 	);
 	var netstrength = speed.mbps;
+	console.log(netstrength);
 
 	try {
-		await session.run(
-			`
+		await session.run(`
 			MERGE (a:User {id: $id})
 			ON CREATE SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession:$profession}
 			ON MATCH SET a += {firstName: $firstname, lastName: $lastname, email: $email, expiryOfPlan: $expiry, lat: $personlat, long: $personlong, id: $id, amountPerDay: $amountPerDay,country:$country,profession:$profession}
-			WITH a
-			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
+		`, {
+			firstname: d.firstName,
+			lastname: d.lastName,
+			email: d.email,
+			expiry: d.planExpiry,
+			personlat: d.lat,
+			personlong: d.long,
+			id: id,
+			amountPerDay: d.amountPerDay,
+			country: d.country,
+			profession: d.profession,
+		});
+		await session.close();
+		session = driver.session();
+		await session.run(`
+			MATCH (a:User {id: $id}) MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
-			WITH a
-			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = $amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
-			MERGE (p:Plan)
-			ON MATCH SET p+={userRating:(((p.userRating*p.numberOfUsers)+$userRating)/(p.numberOfUsers+1)),numberOfUsers+=1}
-			MATCH (p:Plan)-[:BELONGS_TO]:(pr:Provider)
-			ON MATCH SET pr+={networkStrength:(((pr.networkStrength*pr.numberOfUsers)+$networkStrength)/(pr.numberOfUsers+1)),numberOfUsers+=1}
-			MATCH (a) WITH A MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession MERGE (a)-[:SIMILAR_WORK]->(b)
-			MERGE (a)-[r:USES]->(p)`,
-			{
-				firstname: d.firstName,
-				lastname: d.lastName,
-				email: d.email,
-				expiry: d.planExpiry,
-				personlat: d.lat,
-				personlong: d.long,
-				id: id,
-				amountPerDay: d.amountPerDay,
-				pid: pid,
-				type: d.type,
-				cpm: d.costPerMonth,
-				userRating: d.userRating,
-				networkStrength: netstrength,
-				country: d.country,
-				profession: d.profession,
-			}
-		);
+		`, {
+			id: id,
+		})
+		await session.close();
+		session = driver.session();
+		await session.run(`
+			MATCH (a:User {id: $id}) MATCH (p:Plan {provider_id: $pid, amountOfData: $amountPerDay, type: $type, costPerMonth: $cpm})
+			WITH p.numberOfUsers + 1 as s, p, a
+			SET p.userRating = (((p.userRating*p.numberOfUsers)+$userRating)/(s)), p.numberOfUsers = s
+			MERGE (a)-[:USES]->(p)
+		`, {
+			id: id,
+			amountPerDay: d.amountPerDay,
+			pid: pid,
+			type: d.type,
+			cpm: d.costPerMonth,
+			userRating: parseInt(d.userRating),
+		})
+		await session.close();
+		session = driver.session();
+		await session.run(`
+			MATCH (p:Plan {provider_id: $pid, amountOfData: $amountPerDay, type: $type, costPerMonth: $cpm})-[:BELONGS_TO]->(pr:Provider)
+			WITH pr.numberOfUsers + 1 as spr, pr
+			SET pr.networkStrength = (((pr.networkStrength*pr.numberOfUsers)+$networkStrength)/(spr)), pr.numberOfUsers = spr
+		`, {
+			amountPerDay: d.amountPerDay,
+			pid: pid,
+			type: d.type,
+			cpm: d.costPerMonth,
+			networkStrength: parseInt(netstrength),
+		})
+		await session.close();
+		session = driver.session();
+		await session.run(`
+			MATCH (a:User {id: $id}) MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession AND a.id <> b.id MERGE (a)-[:SIMILAR_WORK]->(b)
+		`, {
+			id: id,
+		});
 		res.status(200).send(id);
 	} catch (err) {
 		res.status(500).send(err);

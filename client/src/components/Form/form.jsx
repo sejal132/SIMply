@@ -161,10 +161,10 @@ const SignupForm = props => {
 				);
 				console.log(result.data);
 				localStorage.setItem('id', result.data);
+				props.history.push('/recommend');
 			} catch (error) {
 				console.log(error);
 			}
-			props.history.push('/recommend');
 		} else {
 			e.preventDefault();
 		}

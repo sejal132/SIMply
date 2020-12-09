@@ -111,13 +111,13 @@ const addUser = async (req, res) => {
 
 const recommendPlans = async (req, res) => {
 	const id = req.query.uid;
-	const session = driver.session();
+	let session = driver.session();
 
 	try {
-		const queryResult = await session.run(
+		const queryResult1 = await session.run(
 			`match (u:User{id: $id})-[:USES]->(p:Plan)
 			match (p)-[:SIMILAR]-(p1:Plan) 
-			where (p1.userRating + p1.systemRating) > (p1.userRating + p1.systemRating)
+			where (p1.userRating + p1.systemRating) > (p.userRating + p.systemRating)
 			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
 			where p1.id=p2.id 
 			set p2.systemRating = p2.systemRating + 0.5
@@ -126,8 +126,35 @@ const recommendPlans = async (req, res) => {
 				id: id,
 			}
 		);
+		await session.close();
+		session = driver.session();
+		const queryResult2 = await session.run(`
+			match (u:User {id: $id})-[:NEAR]-(u1:User)-[:USES]->(p:Plan) 
+			SET p.systemRating = p.systemRating + 0.5
+			RETURN p
+		`, {
+			id: id,
+		})
+		await session.close();
+		session = driver.session();
+		const queryResult3 = await session.run(`
+			match (u:User{id: $id})-[:USES]->(p:Plan)
+			match (p)-[:SIMILAR]-(p1:Plan) 
+			SET p1.systemRating = p1.systemRating + 0.5
+			return p1
+		`, {
+			id: id,
+		})
 		const planData = [];
-		queryResult.records.forEach(record => {
+		queryResult1.records.forEach(record => {
+			console.log(record.get(0).properties);
+			planData.push(record.get(0).properties);
+		});
+		queryResult3.records.forEach(record => {
+			console.log(record.get(0).properties);
+			planData.push(record.get(0).properties);
+		});
+		queryResult2.records.forEach(record => {
 			console.log(record.get(0).properties);
 			planData.push(record.get(0).properties);
 		});

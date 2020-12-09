@@ -36,6 +36,7 @@ const addUser = async (req, res) => {
 		fileSizeInBytes
 	);
 	var netstrength = speed.mbps;
+	console.log(netstrength);
 
 	try {
 		await session.run(
@@ -47,13 +48,14 @@ const addUser = async (req, res) => {
 			MATCH (b: User) WHERE distance(point({latitude: a.lat, longitude: a.long}), point({latitude: b.lat, longitude: b.long}))/1000 <=2 AND a.id <> b.id 
 			MERGE (a)-[r:NEAR]->(b)
 			WITH a
-			MATCH (p:Plan) WHERE p.provider_id = $pid AND p.amountOfData = $amountPerDay AND p.type = $type AND p.costPerMonth = $cpm
-			MERGE (p:Plan)
-			ON MATCH SET p+={userRating:(((p.userRating*p.numberOfUsers)+$userRating)/(p.numberOfUsers+1)),numberOfUsers+=1}
-			MATCH (p:Plan)-[:BELONGS_TO]:(pr:Provider)
-			ON MATCH SET pr+={networkStrength:(((pr.networkStrength*pr.numberOfUsers)+$networkStrength)/(pr.numberOfUsers+1)),numberOfUsers+=1}
-			MATCH (a) WITH A MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession MERGE (a)-[:SIMILAR_WORK]->(b)
-			MERGE (a)-[r:USES]->(p)`,
+			MATCH (p:Plan {provider_id: $pid, amountOfData: $amountPerDay, type: $type, costPerMonth: $cpm})
+			SET p.userRating = (((p.userRating*p.numberOfUsers)+5)/(p.numberOfUsers+1)), p.numberOfUsers = p.numberOfUsers + 1
+			MERGE (a)-[:USES]->(p)
+			WITH a, p
+			MATCH (p:Plan)-[:BELONGS_TO]->(pr:Provider)
+			SET pr.networkStrength = (((pr.networkStrength*pr.numberOfUsers)+10)/(pr.numberOfUsers+1)), pr.numberOfUsers = pr.numberOfUsers + 1
+			WITH a
+			MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession AND a.id <> b.id MERGE (a)-[:SIMILAR_WORK]->(b)`,
 			{
 				firstname: d.firstName,
 				lastname: d.lastName,

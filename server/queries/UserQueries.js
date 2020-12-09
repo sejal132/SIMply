@@ -49,11 +49,11 @@ const addUser = async (req, res) => {
 			MERGE (a)-[r:NEAR]->(b)
 			WITH a
 			MATCH (p:Plan {provider_id: $pid, amountOfData: $amountPerDay, type: $type, costPerMonth: $cpm})
-			SET p.userRating = (((p.userRating*p.numberOfUsers)+5)/(p.numberOfUsers+1)), p.numberOfUsers = p.numberOfUsers + 1
+			SET p.userRating = (((p.userRating*p.numberOfUsers)+$userRating)/(p.numberOfUsers+1)), p.numberOfUsers = p.numberOfUsers + 1
 			MERGE (a)-[:USES]->(p)
 			WITH a, p
 			MATCH (p:Plan)-[:BELONGS_TO]->(pr:Provider)
-			SET pr.networkStrength = (((pr.networkStrength*pr.numberOfUsers)+10)/(pr.numberOfUsers+1)), pr.numberOfUsers = pr.numberOfUsers + 1
+			SET pr.networkStrength = (((pr.networkStrength*pr.numberOfUsers)+$networkStrength)/(pr.numberOfUsers+1)), pr.numberOfUsers = pr.numberOfUsers + 1
 			WITH a
 			MATCH (b:User) WHERE a.country=b.country AND a.profession=b.profession AND a.id <> b.id MERGE (a)-[:SIMILAR_WORK]->(b)`,
 			{

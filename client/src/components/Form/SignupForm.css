@@ -69,6 +69,12 @@
 	width: 50%;
 	cursor: pointer;
 }
+.spinner {
+	float: right;
+	border: none;
+	background-color: transparent;
+	width: 60%;
+}
 .register .nav-tabs {
 	margin-top: 3%;
 	border: none;

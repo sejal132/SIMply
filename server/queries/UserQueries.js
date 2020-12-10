@@ -161,7 +161,8 @@ const recommendPlans = async (req, res) => {
 			console.log(record.get(0).properties);
 			planData.push(record.get(0).properties);
 		});
-		res.status(200).send(planData);
+		planData.sort((a, b) => b.userRating - a.userRating);
+		res.status(200).send(planData.slice(0, 9));
 	} catch (err) {
 		res.status(500).send(err);
 		console.log(err);

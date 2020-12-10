@@ -1,20 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Item from './item';
 import axios from 'axios';
+import Map from '../MapDisplay/Map';
 import './Recommend.css';
 
-const useStyles = makeStyles(theme => ({
-	root: {
-		width: '100%',
-		maxWidth: 360,
-		backgroundColor: theme.palette.background.paper,
-	},
-}));
-const arr=[1,2,3];
 const Recommend = props => {
-	const classes = useStyles();
 	const [planData, setPlanData] = useState([]);
 
 	useEffect(() => {
@@ -42,7 +33,8 @@ const Recommend = props => {
 
 	return (
 		<React.Fragment>
-			{!props.route ? (<div style={{ padding: '10px' }}>
+			{!props.route ? (
+				<div style={{ padding: '10px' }}>
 					<Button
 						variant='contained'
 						color='secondary'
@@ -51,8 +43,8 @@ const Recommend = props => {
 					</Button>
 				</div>
 			) : null}
-			 <section class="hero-section inner-page">
-      {/* <div class="wave">
+			<section class='hero-section inner-page'>
+				{/* <div class="wave">
 
         <svg width="1920px" height="265px" viewBox="0 0 1920 265" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -64,32 +56,38 @@ const Recommend = props => {
 
       </div> */}
 
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-12">
-            <div class="row justify-content-center">
-              <div class="col-md-7 text-center hero-text">
-                <h1 data-aos="fade-up" data-aos-delay="">Top Recommendations for you!</h1>
-                <p class="mb-5" data-aos="fade-up" data-aos-delay="100">These are the best choices to decide upon</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+				<div class='container'>
+					<div class='row align-items-center'>
+						<div class='col-12'>
+							<div class='row justify-content-center'>
+								<div class='col-md-7 text-center hero-text'>
+									<h1 data-aos='fade-up' data-aos-delay=''>
+										Top Recommendations for you!
+									</h1>
+									<p
+										class='mb-5'
+										data-aos='fade-up'
+										data-aos-delay='100'>
+										These are the best choices to decide
+										upon
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="row mb-5">
-		{planData.map(plan => (
-					<Item key={plan.id} {...plan} />
-				))}
-         
-		  </div>
-		  </div>
-		  </section>
-   
+			<section class='section'>
+				<div class='container'>
+					<div class='row mb-5'>
+						{planData.map(plan => (
+							<Item key={plan.id} {...plan} />
+						))}
+					</div>
+				</div>
+			</section>
+			<Map />
 		</React.Fragment>
 	);
 };

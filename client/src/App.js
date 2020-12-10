@@ -12,6 +12,7 @@ import Recommend from './components/Recommend/recommend';
 import Foreign from './components/Foreign/foreign';
 import Header from './components/Header/Header';
 import HeroSection from './components/Hero Section/HeroSection';
+import Map from './components/MapDisplay/Map';
 
 function App() {
 	const [id, setId] = useState('');
@@ -40,6 +41,7 @@ function App() {
 					<Route exact path='/signup' component={Form} />
 				</Switch>
 			</Router>
+			<Map />
 		</React.Fragment>
 	);
 }

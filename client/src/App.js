@@ -38,7 +38,7 @@ function App() {
 					<Route exact path='/' render={()=><HeroSection id={id} />} />
 					<Route exact path='/foreign-travel' component={Foreign} />
 					<Route exact path='/recommend' component={Recommend} />
-					<Route exact path='/signup' component={Form} />
+					<Route exact path='/signup' component={SignupForm} />
 				</Switch>
 			</Router>
 			<Map />

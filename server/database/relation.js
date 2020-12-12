@@ -81,7 +81,7 @@ const plan_plan = async () => {
 			WITH a
 			MATCH (b:Plan) WHERE a.id <> b.id
 			WITH (2 - abs(a.amountOfData - b.amountOfData)) as amtDiff, a, b
-			WITH (0.5*abs(a.costPerMonth-b.costPerMonth)+0.4*abs(a.rating-b.rating)+0.1*abs(a.numberOfUsers-b.numberOfUsers)) as paramDiff,a,b
+			WITH (0.5*abs(a.costPerMonth-b.costPerMonth)+0.4*abs(a.userRating-b.userRating)+0.1*abs(a.numberOfUsers-b.numberOfUsers)) as paramDiff,a,b
 			WHERE (amtDiff = 2 OR amtDiff=1.5 AND a.type = b.type AND paramDiff<=30)
 			MERGE (a)-[r:SIMILAR]->(b)`
 		);
@@ -143,9 +143,9 @@ const user_user = async () => {
 
 const combined = async () => {
 	await plan_provider();
-	await user_plan();
+	// await user_plan();
 	await plan_plan();
-	await user_user();
+	// await user_user();
 	await driver.close();
 };
 

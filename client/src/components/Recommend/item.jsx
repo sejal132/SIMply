@@ -1,6 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import './Recommend.css';
+import axios from 'axios';
+
 
 const getProvider = pid => {
 	switch (pid) {
@@ -37,9 +39,15 @@ const getProviderWebsite = pid => {
 };
 
 const Item = props => {
-	const subscribedBtnHandler = e => {
-		e.preventDefault();
-		alert('You subscribed to the plan');
+	const subscribedBtnHandler = async e => {
+		//e.preventDefault();
+		const uid=localStorage.getItem('id');
+		const data={uid:uid,planId:props.id};
+		await axios.post('http://localhost:8080/subscribed',data);
+		window.location.reload();
+
+
+		
 	};
 	return (
 		<React.Fragment>

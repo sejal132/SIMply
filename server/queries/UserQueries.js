@@ -156,24 +156,24 @@ const recommendPlans = async (req, res) => {
 		queryResult3.records.forEach(record => {
 			console.log(record.get(0).properties);
 			let i;
-			for(i = 0; i < planData.length; ++i) {
+			for (i = 0; i < planData.length; ++i) {
 				const plan = planData[i];
-				if(plan.id === record.get(0).properties.id)
+				if (plan.id === record.get(0).properties.id)
 					break;
 			}
-			if(i === planData.length) {
+			if (i === planData.length) {
 				planData.push(record.get(0).properties);
 			}
 		});
 		queryResult2.records.forEach(record => {
 			console.log(record.get(0).properties);
 			let i;
-			for(i = 0; i < planData.length; ++i) {
+			for (i = 0; i < planData.length; ++i) {
 				const plan = planData[i];
-				if(plan.id === record.get(0).properties.id)
+				if (plan.id === record.get(0).properties.id)
 					break;
 			}
-			if(i === planData.length) {
+			if (i === planData.length) {
 				planData.push(record.get(0).properties);
 			}
 		});
@@ -215,9 +215,43 @@ const recommendForeign = async (req, res) => {
 		console.log(error);
 	}
 };
+const subscribed = async (req, res) => {
+	const uid = req.body.uid;
+	const planId = req.body.planId;
+	let session = driver.session();
+	try {
+		await session.run(
+			'Match (u:User{id:$uid})-[r:USES]->(p:Plan) delete r ',
+			{ uid: uid }
+		);
+		session.close();
+		session = driver.session();
+		await session.run(
+			`Match (u:User{id:$uid}),(p:Plan{id:$planId}) CREATE (u)-[r:USES]->(p)
+			with p
+			set p.systemRating=p.systemRating+1
+			`,
+			{
+				uid: uid, planId: planId
+			}
+		);
+		session.close();
+		res.status(200).send('Successful');
+
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+
+	}
+
+
+
+
+};
 
 module.exports = {
 	addUser,
 	recommendPlans,
 	recommendForeign,
+	subscribed
 };

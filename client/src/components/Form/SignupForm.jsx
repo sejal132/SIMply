@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Spinner from '../Spinner/Spinner';
+import Navbar from '../Navbar/Navbar';
 import './SignupForm.css';
 
 const SignupForm = props => {
@@ -146,6 +147,22 @@ const SignupForm = props => {
 		return formIsValid;
 	};
 
+	let navbarComponent = null;
+
+	const uid = localStorage.getItem('id');
+	if (uid) {
+		navbarComponent = (
+			<Navbar
+				navItems={{
+					newUser: false,
+					viewMap: false,
+					foreignTravel: true,
+					recommend: true,
+				}}
+			/>
+		);
+	}
+
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(position => {
 			setLat(position.coords.latitude);
@@ -202,196 +219,226 @@ const SignupForm = props => {
 	};
 
 	return (
-		<div class='container register'>
-			<div class='row'>
-				<div class='col-md-3 register-left'>
-					<img
-						src='https://image.ibb.co/n7oTvU/logo_white.png'
-						alt=''
-					/>
-					<h3>Welcome to SIMply</h3>
-					<br />
-				</div>
-				<div class='col-md-9 register-right'>
-					<div class='tab-content' id='myTabContent'>
-						<div
-							class='tab-pane fade show active'
-							id='home'
-							role='tabpanel'
-							aria-labelledby='home-tab'>
-							<h3 class='register-heading'>Signup to SIMply</h3>
-							<div class='row register-form'>
-								<div class='col-md-6'>
-									<div class='form-group'>
-										<input
-											type='text'
-											class='form-control'
-											placeholder='First Name *'
-											value={firstName}
-											onChange={handleFirstNameChange}
-										/>
-									</div>
-									<div class='form-group'>
-										<input
-											type='text'
-											class='form-control'
-											placeholder='Last Name *'
-											value={lastName}
-											onChange={handleLastNameChange}
-										/>
-									</div>
-									<div class='form-group'>
-										<input
-											type='email'
-											class='form-control'
-											placeholder='Your Email *'
-											value={email}
-											onChange={handleEmailChange}
-										/>
-									</div>
-									<div class='form-group'>
-										<input
-											type='number'
-											min='0'
-											max='401'
-											class='form-control'
-											placeholder='Cost per month *'
-											value={costPerMonth}
-											onChange={handleCostChange}
-										/>
-									</div>
-									<div class='form-group'>
-										<input
-											type='date'
-											min={Date.now()}
-											max={
-												new Date(
-													new Date().setFullYear(
-														new Date().getFullYear() +
-															1
-													)
-												)
-											}
-											class='form-control'
-											placeholder='Expiry of plan *'
-											value={planExpiry}
-											onChange={handleDateChange}
-										/>
-									</div>
-								</div>
-								<div class='col-md-6'>
-									<div class='form-group'>
-										<select
-											class='form-control'
-											onChange={handleProviderChange}>
-											<option value='' selected disabled>
-												Select Provider *
-											</option>
-											<option value='Jio'>Jio</option>
-											<option value='Vodafone'>
-												Vodafone
-											</option>
-											<option value='Idea'>Idea</option>
-											<option value='Airtel'>
-												Airtel
-											</option>
-											<option value='BSNL'>BSNL</option>
-										</select>
-									</div>
-									<div class='form-group'>
-										<select
-											class='form-control'
-											onChange={handleTypeChange}>
-											<option value='' selected disabled>
-												Select Type *
-											</option>
-											<option value='prepaid'>
-												Prepaid
-											</option>
-											<option value='postpaid'>
-												Postpaid
-											</option>
-										</select>
-									</div>
-									<div class='form-group'>
-										<select
-											class='form-control'
-											onChange={handleAmountChange}>
-											<option value='' selected disabled>
-												Select Amount of Data *
-											</option>
-											<option value={1}>1</option>
-											<option value={1.5}>1.5</option>
-											<option value={2}>2</option>
-											<option value={3}>3</option>
-										</select>
-									</div>
-									<div class='form-group'>
-										<select
-											class='form-control'
-											onChange={handleProfessionChange}>
-											<option value='' selected disabled>
-												Select Profession *
-											</option>
-											<option value='student'>
-												Student
-											</option>
-											<option value='travel'>
-												Travel
-											</option>
-											<option value='work'>Work</option>
-										</select>
-									</div>
-									<div class='form-group'>
-										<select
-											class='form-control'
-											onChange={handleCountryChange}>
-											<option value='' selected disabled>
-												Select Country *
-											</option>
-											<option value='India'>India</option>
-											<option value='USA'>USA</option>
-											<option value='Great Britain'>
-												Great Britain
-											</option>
-											<option value='Australia'>
-												Australia
-											</option>
-											<option value='Russia'>
-												Russia
-											</option>
-										</select>
-									</div>
-									<div class='form-group'>
-										<input
-											type='number'
-											class='form-control'
-											placeholder='Rating *'
-											value={rating}
-											onChange={handleRatingChange}
-											min='1'
-											max='10'
-										/>
-									</div>
-									{isLoading ? (
-										<div class='spinner'>
-											<Spinner />
+		<React.Fragment>
+			{navbarComponent}
+			<div class='container register'>
+				<div class='row'>
+					<div class='col-md-3 register-left'>
+						<img
+							src='https://image.ibb.co/n7oTvU/logo_white.png'
+							alt=''
+						/>
+						<h3>Welcome to SIMply</h3>
+						<br />
+					</div>
+					<div class='col-md-9 register-right'>
+						<div class='tab-content' id='myTabContent'>
+							<div
+								class='tab-pane fade show active'
+								id='home'
+								role='tabpanel'
+								aria-labelledby='home-tab'>
+								<h3 class='register-heading'>
+									Signup to SIMply
+								</h3>
+								<div class='row register-form'>
+									<div class='col-md-6'>
+										<div class='form-group'>
+											<input
+												type='text'
+												class='form-control'
+												placeholder='First Name *'
+												value={firstName}
+												onChange={handleFirstNameChange}
+											/>
 										</div>
-									) : (
-										<button
-											type='button'
-											class='btnRegister'
-											onClick={formSubmitHandler}>
-											SignUp
-										</button>
-									)}
+										<div class='form-group'>
+											<input
+												type='text'
+												class='form-control'
+												placeholder='Last Name *'
+												value={lastName}
+												onChange={handleLastNameChange}
+											/>
+										</div>
+										<div class='form-group'>
+											<input
+												type='email'
+												class='form-control'
+												placeholder='Your Email *'
+												value={email}
+												onChange={handleEmailChange}
+											/>
+										</div>
+										<div class='form-group'>
+											<input
+												type='number'
+												min='0'
+												max='401'
+												class='form-control'
+												placeholder='Cost per month *'
+												value={costPerMonth}
+												onChange={handleCostChange}
+											/>
+										</div>
+										<div class='form-group'>
+											<input
+												type='date'
+												min={Date.now()}
+												max={
+													new Date(
+														new Date().setFullYear(
+															new Date().getFullYear() +
+																1
+														)
+													)
+												}
+												class='form-control'
+												placeholder='Expiry of plan *'
+												value={planExpiry}
+												onChange={handleDateChange}
+											/>
+										</div>
+									</div>
+									<div class='col-md-6'>
+										<div class='form-group'>
+											<select
+												class='form-control'
+												onChange={handleProviderChange}>
+												<option
+													value=''
+													selected
+													disabled>
+													Select Provider *
+												</option>
+												<option value='Jio'>Jio</option>
+												<option value='Vodafone'>
+													Vodafone
+												</option>
+												<option value='Idea'>
+													Idea
+												</option>
+												<option value='Airtel'>
+													Airtel
+												</option>
+												<option value='BSNL'>
+													BSNL
+												</option>
+											</select>
+										</div>
+										<div class='form-group'>
+											<select
+												class='form-control'
+												onChange={handleTypeChange}>
+												<option
+													value=''
+													selected
+													disabled>
+													Select Type *
+												</option>
+												<option value='prepaid'>
+													Prepaid
+												</option>
+												<option value='postpaid'>
+													Postpaid
+												</option>
+											</select>
+										</div>
+										<div class='form-group'>
+											<select
+												class='form-control'
+												onChange={handleAmountChange}>
+												<option
+													value=''
+													selected
+													disabled>
+													Select Amount of Data *
+												</option>
+												<option value={1}>1</option>
+												<option value={1.5}>1.5</option>
+												<option value={2}>2</option>
+												<option value={3}>3</option>
+											</select>
+										</div>
+										<div class='form-group'>
+											<select
+												class='form-control'
+												onChange={
+													handleProfessionChange
+												}>
+												<option
+													value=''
+													selected
+													disabled>
+													Select Profession *
+												</option>
+												<option value='student'>
+													Student
+												</option>
+												<option value='travel'>
+													Travel
+												</option>
+												<option value='work'>
+													Work
+												</option>
+											</select>
+										</div>
+										<div class='form-group'>
+											<select
+												class='form-control'
+												onChange={handleCountryChange}>
+												<option
+													value=''
+													selected
+													disabled>
+													Select Country *
+												</option>
+												<option value='India'>
+													India
+												</option>
+												<option value='USA'>USA</option>
+												<option value='Great Britain'>
+													Great Britain
+												</option>
+												<option value='Australia'>
+													Australia
+												</option>
+												<option value='Russia'>
+													Russia
+												</option>
+											</select>
+										</div>
+										<div class='form-group'>
+											<input
+												type='number'
+												class='form-control'
+												placeholder='Rating *'
+												value={rating}
+												onChange={handleRatingChange}
+												min='1'
+												max='10'
+											/>
+										</div>
+										{isLoading ? (
+											<div class='spinner'>
+												<Spinner />
+											</div>
+										) : (
+											<button
+												type='button'
+												class='btnRegister'
+												onClick={formSubmitHandler}>
+												SignUp
+											</button>
+										)}
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		</React.Fragment>
 	);
 };
 

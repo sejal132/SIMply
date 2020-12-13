@@ -9,9 +9,10 @@ import {
 	Select,
 	InputLabel,
 } from '@material-ui/core';
+import Navbar from '../Navbar/Navbar';
 import Recommend from '../Recommend/recommend';
 
-const ForeignForm = props => {
+const ForeignForm = () => {
 	const [route, setRoute] = useState('');
 	const [country, setCountry] = useState('India');
 	const [profession, setProfession] = useState('student');
@@ -21,28 +22,22 @@ const ForeignForm = props => {
 	const handleProfessionChange = e => setProfession(e.target.value);
 
 	const formSubmitHandler = async e => {
-		// const uid = localStorage.getItem('id');
-		const uid = '5f97e0f7fc13ae0b2000009a';
+		const uid = localStorage.getItem('id');
 		setRoute(
 			`/foreign/?uid=${uid}&profession=${profession}&country=${country}`
 		);
 	};
 
-	const onBackPressHandler = e => {
-		e.preventDefault();
-		props.history.push('/recommend');
-	};
-
 	return (
 		<React.Fragment>
-			<div style={{ padding: '10px' }}>
-				<Button
-					variant='contained'
-					color='secondary'
-					onClick={onBackPressHandler}>
-					Back
-				</Button>
-			</div>
+			<Navbar
+				navItems={{
+					newUser: true,
+					viewMap: false,
+					foreignTravel: false,
+					recommend: true,
+				}}
+			/>
 			<Container maxWidth='sm'>
 				<h1 className='heading'> Specifications </h1>
 				<Paper style={{ padding: 16 }} id='from_style'>

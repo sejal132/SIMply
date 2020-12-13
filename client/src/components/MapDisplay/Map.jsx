@@ -3,28 +3,47 @@ import { MapContainer, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import data from './data.json';
 import Markers from '../VenueMarkers/VenueMarkers';
+import axios from 'axios';
+import NavBar from '../Navbar/Navbar';
+
 
 class MapView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentLocation: { lat: 52.52437, lng: 13.41053 },
+			lat:localStorage.getItem('lat'),
+			long:localStorage.getItem('long'),
 			zoom: 12,
+			coordList:[],
 		};
+	}
+	async componentDidMount() {
+		const uid=localStorage.getItem('id');
+		
+	const data=	await axios.get(`http://localhost:8080/map/?uid=${uid}`);
+	this.setState({
+		coordList:data.data
+	});
+
+
+
 	}
 
 	render() {
-		const { currentLocation, zoom } = this.state;
+		const { lat,long, zoom } = this.state;
 
 		return (
-			<MapContainer center={currentLocation} zoom={zoom} scrollWheelZoom={false}>
+			<>
+			<NavBar navItems={{newUser:true,recommend:true,foreignTravel:true}} />
+			<MapContainer center={{lat:lat,lng:long}} zoom={zoom} scrollWheelZoom={false}>
 				<TileLayer
 					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 					url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
 				/>
 
-				<Markers venues={data.venues} />
+				<Markers venues={this.state.coordList} />
 			</MapContainer>
+			</>
 		);
 	}
 }

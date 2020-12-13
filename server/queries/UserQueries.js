@@ -248,10 +248,36 @@ const subscribed = async (req, res) => {
 
 
 };
+const map = async (req, res) => {
+	const uid = req.query.uid;
+	let session = driver.session();
+	try {
+		const queryResult = await session.run(
+			'Match (u:User{id:$uid})-[:USES]->(p:Plan)<-[:USES]-(a:User) where u.id<>a.id return a',
+			{ uid: uid }
+
+		);
+		const coordData = [];
+		queryResult.records.forEach(record => {
+			coordData.push(record.get(0).properties);
+			console.log(record.get(0).properties);
+		});
+		session.close();
+		res.status(200).send(coordData);
+
+	} catch (error) {
+		console.log(error);
+		res.status(500).send(error);
+
+	}
+
+
+}
 
 module.exports = {
 	addUser,
 	recommendPlans,
 	recommendForeign,
-	subscribed
+	subscribed,
+	map
 };

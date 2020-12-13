@@ -167,8 +167,11 @@ const SignupForm = props => {
 		navigator.geolocation.getCurrentPosition(position => {
 			setLat(position.coords.latitude);
 			setLong(position.coords.longitude);
+			localStorage.setItem('lat', position.coords.latitude);
+			localStorage.setItem('long', position.coords.longitude);
 		});
 	}, []);
+
 
 	const formSubmitHandler = async e => {
 		if (isFormValid()) {
@@ -289,7 +292,7 @@ const SignupForm = props => {
 													new Date(
 														new Date().setFullYear(
 															new Date().getFullYear() +
-																1
+															1
 														)
 													)
 												}
@@ -424,13 +427,13 @@ const SignupForm = props => {
 												<Spinner />
 											</div>
 										) : (
-											<button
-												type='button'
-												class='btnRegister'
-												onClick={formSubmitHandler}>
-												SignUp
-											</button>
-										)}
+												<button
+													type='button'
+													class='btnRegister'
+													onClick={formSubmitHandler}>
+													SignUp
+												</button>
+											)}
 									</div>
 								</div>
 							</div>

@@ -12,6 +12,7 @@ app.post("/adduser", db.addUser);
 app.get('/recommend',db.recommendPlans);
 app.get('/foreign',db.recommendForeign);
 app.post('/subscribed',db.subscribed);
+app.get('/map',db.map);
 
 app.listen(8080, () => {
   console.log("Server started at http://localhost:8080");

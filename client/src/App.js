@@ -10,6 +10,7 @@ import SignupForm from './components/Form/SignupForm';
 import Recommend from './components/Recommend/recommend';
 import Foreign from './components/Foreign/foreign';
 import HeroSection from './components/Hero Section/HeroSection';
+import Map from './components/MapDisplay/Map';
 
 function App() {
 	const [id, setId] = useState('');
@@ -26,7 +27,8 @@ function App() {
 			{/* <Header /> */}
 			<Router>
 				<Switch>
-					<Route exact path='/' render={()=><HeroSection id={id} />} />
+					<Route exact path='/map' component={Map} />
+					<Route exact path='/' render={() => <HeroSection id={id} />} />
 					<Route exact path='/foreign-travel' component={Foreign} />
 					<Route exact path='/recommend' component={Recommend} />
 					<Route exact path='/signup' component={SignupForm} />

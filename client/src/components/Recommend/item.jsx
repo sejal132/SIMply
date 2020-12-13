@@ -1,5 +1,7 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import './Recommend.css';
+
 const getProvider = pid => {
 	switch (pid) {
 		case 1:
@@ -17,24 +19,65 @@ const getProvider = pid => {
 	}
 };
 
-const Item = props => {
+const getProviderWebsite = pid => {
+	switch (pid) {
+		case 1:
+			return 'https://www.jio.com/';
+		case 2:
+			return 'https://www.airtel.in/';
+		case 3:
+			return 'https://www.myvi.in/';
+		case 4:
+			return 'https://www.myvi.in/';
+		case 5:
+			return 'https://www.bsnl.co.in/';
+		default:
+			return '';
+	}
+};
 
+const Item = props => {
+	const subscribedBtnHandler = e => {
+		e.preventDefault();
+		alert('You subscribed to the plan');
+	};
 	return (
 		<React.Fragment>
-			<div class="col-md-4">
-				<div class="post-entry">
-					<a href="blog-single.html" class="d-block mb-4">
-
-					</a>
-					<div class="post-text">
-
-						<h3><a href="#">Provider: {getProvider(props.provider_id)}</a></h3>
+			<div class='col-md-4'>
+				<div class='post-entry'>
+					<div class='post-text' style={{ padding: '10px' }}>
+						<h3>
+							<a
+								href={getProviderWebsite(props.provider_id)}
+								target='_blank'
+								rel='noreferrer'>
+								Provider: {getProvider(props.provider_id)}
+								<i
+									class='fa fa-external-link'
+									style={{
+										paddingLeft: '5px',
+										fontSize: '10px',
+									}}></i>
+							</a>
+						</h3>
 						<p>Amount of Data: {props.amountOfData}</p>
 						<p>Cost Per Month: {props.costPerMonth}</p>
 						<p>Validity: {props.validity} months</p>
 						<p>User Rating: {props.userRating} /10</p>
 						<p>Type: {props.type}</p>
-						{props.perks ? <p>Perks: {props.perks}</p> : null}
+						{props.perks ? (
+							<p>Perks: {props.perks}</p>
+						) : (
+							<p>Perks: none</p>
+						)}
+					</div>
+					<div style={{ padding: '10px' }}>
+						<Button
+							variant='contained'
+							color='secondary'
+							onClick={subscribedBtnHandler}>
+							Subscribed
+						</Button>
 					</div>
 				</div>
 			</div>

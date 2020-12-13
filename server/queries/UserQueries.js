@@ -155,11 +155,27 @@ const recommendPlans = async (req, res) => {
 		});
 		queryResult3.records.forEach(record => {
 			console.log(record.get(0).properties);
-			planData.push(record.get(0).properties);
+			let i;
+			for(i = 0; i < planData.length; ++i) {
+				const plan = planData[i];
+				if(plan.id === record.get(0).properties.id)
+					break;
+			}
+			if(i === planData.length) {
+				planData.push(record.get(0).properties);
+			}
 		});
 		queryResult2.records.forEach(record => {
 			console.log(record.get(0).properties);
-			planData.push(record.get(0).properties);
+			let i;
+			for(i = 0; i < planData.length; ++i) {
+				const plan = planData[i];
+				if(plan.id === record.get(0).properties.id)
+					break;
+			}
+			if(i === planData.length) {
+				planData.push(record.get(0).properties);
+			}
 		});
 		planData.sort((a, b) => b.userRating - a.userRating);
 		res.status(200).send(planData.slice(0, 9));

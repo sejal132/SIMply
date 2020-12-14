@@ -206,7 +206,7 @@ const SignupForm = props => {
 			try {
 				setIsLoading(true);
 				const result = await axios.post(
-					'http://localhost:8080/adduser',
+					`http://${process.env.REACT_APP_IP}:8080/adduser`,
 					dataObj
 				);
 				console.log(result.data);

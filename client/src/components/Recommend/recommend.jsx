@@ -12,12 +12,12 @@ const Recommend = props => {
 		const fetchData = async () => {
 			if (props.route) {
 				const data = await axios.get(
-					`http://localhost:8080${props.route}`
+					`http://${process.env.REACT_APP_IP}:8080${props.route}`
 				);
 				setPlanData(data.data);
 			} else {
 				const data = await axios.get(
-					`http://localhost:8080/recommend/?uid=${uid}`
+					`http://${process.env.REACT_APP_IP}:8080/recommend/?uid=${uid}`
 				);
 				setPlanData(data.data);
 			}

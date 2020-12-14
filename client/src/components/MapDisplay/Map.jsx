@@ -20,7 +20,7 @@ class MapView extends Component {
 	async componentDidMount() {
 		const uid=localStorage.getItem('id');
 		
-	const data=	await axios.get(`http://localhost:8080/map/?uid=${uid}`);
+	const data=	await axios.get(`http://${process.env.REACT_APP_IP}:8080/map/?uid=${uid}`);
 	this.setState({
 		coordList:data.data
 	});

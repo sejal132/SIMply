@@ -43,7 +43,7 @@ const Item = props => {
 		//e.preventDefault();
 		const uid=localStorage.getItem('id');
 		const data={uid:uid,planId:props.id};
-		await axios.post(`http://${process.env.REACT_APP_IP}:8080/subscribed`,data);
+		await axios.post(`https://simplyapp/subscribed`,data);
 		window.location.reload();
 
 

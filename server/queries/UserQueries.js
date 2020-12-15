@@ -120,7 +120,7 @@ const recommendPlans = async (req, res) => {
 			match (pr:Provider{id:p.provider_id}),(pr1:Provider{id:p1.provider_id})
 			with abs(pr1.networkStrength-pr.networkStrength) as netdiff,p1,p
 			where (p1.userRating + p1.systemRating) > (p.userRating + p.systemRating) 
-			and netdiff<=50
+			and netdiff<=50 and p.id <> p1.id
 			match (u)-[:NEAR]-(u1:User)-[:USES]->(p2:Plan) 
 			where p1.id=p2.id 
 			set p2.systemRating = p2.systemRating + 0.5
@@ -132,7 +132,10 @@ const recommendPlans = async (req, res) => {
 		await session.close();
 		session = driver.session();
 		const queryResult2 = await session.run(`
-			match (u:User {id: $id})-[:NEAR]-(u1:User)-[:USES]->(p:Plan) 
+			match (u:User {id: $id})-[:NEAR]-(u1:User)-[:USES]->(p:Plan)
+			with u, p
+			match (u)-[:USES]->(p1:Plan) 
+			WHERE p1.id <> p.id
 			SET p.systemRating = p.systemRating + 0.5
 			RETURN p
 		`, {
@@ -143,6 +146,7 @@ const recommendPlans = async (req, res) => {
 		const queryResult3 = await session.run(`
 			match (u:User{id: $id})-[:USES]->(p:Plan)
 			match (p)-[:SIMILAR]-(p1:Plan) 
+			WHERE p.id <> p1.id
 			SET p1.systemRating = p1.systemRating + 0.5
 			return p1
 		`, {
